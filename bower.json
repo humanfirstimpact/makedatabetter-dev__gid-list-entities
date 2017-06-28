@@ -1,0 +1,15 @@
+{
+  "name": "globalid",
+  "authors": [
+    "SOUNAK PAL"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.6.0",
+    "iron-ajax": "PolymerElements/iron-ajax#^1.4.4",
+    "polymer-global-variables": "1.1.0"
+  },
+  "devDependencies": {
+    "web-component-tester": "^4.0.0"
+  },
+  "private": true
+}

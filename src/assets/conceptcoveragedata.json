@@ -1,0 +1,6 @@
+{
+	"lobs": ["global", "commercial bank", "core-ops", "consumer", "enterprise"],
+	"coverage": "5.20%",
+	"eta": "79 days",
+	"confirmedColumns": "27"
+}

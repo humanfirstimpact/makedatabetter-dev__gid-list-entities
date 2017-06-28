@@ -1,0 +1,15 @@
+{
+	"applications": [{
+			"name": "Advanced Information Services",
+			"id": "100680267"
+		},
+		{
+			"name": "GID_DW",
+			"id": "100680315"
+		},
+		{
+			"name": "app@PRODUCT_HUB",
+			"id": "100680364"
+		}
+	]
+}

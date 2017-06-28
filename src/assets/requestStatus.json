@@ -1,0 +1,46 @@
+{
+  "rows" : [
+      {
+	"application": "Advanced Information Services",
+	"concept": "FICO-Score",
+	"database": "AIS DB",
+	"hv": "N",
+	"hv_2": "Y",
+	"hv_3": "N",
+	"hv_4": "Y",
+	"lob": "GLOBAL",
+	"pc": "43",
+	"pc_2": "",
+	"pc_3": "48",
+	"pc_4": "35",
+	"schema": "ADV_INFO_SRVS",
+	"sr": "Y",
+	"sr_2": "N",
+	"sr_3": "Y",
+	"sr_4": "Y",
+	"table": "B2B-ORDER",
+	"tablemapping": "Copy of TABLE1"
+},
+{
+	"application": "Advanced Information Services",
+	"concept": "FICO-Score",
+	"database": "AIS DB",
+	"hv": "N",
+	"hv_2": "Y",
+	"hv_3": "N",
+	"hv_4": "Y",
+	"lob": "GLOBAL",
+	"pc": "43",
+	"pc_2": "",
+	"pc_3": "48",
+	"pc_4": "35",
+	"schema": "ADV_INFO_SRVS",
+	"sr": "Y",
+	"sr_2": "N",
+	"sr_3": "Y",
+	"sr_4": "Y",
+	"table": "B2B-ORDER",
+	"tablemapping": "Copy of TABLE1"
+}
+  ]
+}

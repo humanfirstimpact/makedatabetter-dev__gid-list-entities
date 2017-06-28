@@ -1,0 +1,34 @@
+{
+	"tables": [{
+			"name": "B2B-ORDER",
+			"id": "100689439",
+			"systemRecommended": "true",
+			"humanVerified" : "true",
+			"recommendation" : 65
+		},
+		{
+			"name": "CUST_INFO",
+			"id": "100689440"
+		},
+		{
+			"name": "DIAGNOSIS",
+			"id": "100689441"
+		},
+		{
+			"name": "EMP",
+			"id": "100689442"
+		},
+		{
+			"name": "MEMBERS",
+			"id": "100689448"
+		},
+		{
+			"name": "ORDER_INFO",
+			"id": "100689451"
+		},
+		{
+			"name": "SUPPLIERS",
+			"id": "100689455"
+		}
+	]
+}

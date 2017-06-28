@@ -1,0 +1,79 @@
+<!--
+  Wrapper component to handle rest calls
+-->
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+
+<dom-module id="gid-api">
+  <template>
+         <iron-ajax
+            auto = {{auto}}
+		    url='{{apiUrl}}'
+		    params ='{{_processParams(apiParams)}}'
+		    content-type="application/json"
+            method="{{httpMethod}}"
+		    handle-as="json"
+		    last-response="{{response}}"
+		    last-error="{{error}}"
+		    debounce-duration="300"
+		    timeout = {{apiTimeout}}>
+		 </iron-ajax> 
+
+  </template>
+  <script>
+    (function() {
+     'use strict';
+    // var configObj;
+      Polymer({
+        is:'gid-api',
+        properties:{
+        	apiUrl:  String,
+        	apiParams: String,
+        	attrName : String,
+        	apiHeader:  String,
+        	apiTimeout:{
+        		type: Number,
+    	        notify: true,
+    	        value: 0
+        	},
+        	columns :{
+    	        type: Array,
+    	        notify: true
+            },
+        	response: {
+        	        type: Object,
+        	        notify: true
+           },
+           auto:{
+       		 type:Boolean,
+       	     notify: true,
+       	     value:true
+       		},
+       		httpMethod:{
+       			type:String,
+       			notify:true,
+       			value:"GET"
+       		},
+       		error:{
+       			type:String,
+       			notify:true
+       		}
+        },
+        created:function(){
+        	//configObj = Polymer.globalsManager.get('configObj');
+        },
+        _processParams: function(apiParams){
+        	return JSON.parse(apiParams);
+        },
+        _getUrl: function(apiUrl){
+		   var params = this._processParams(this.apiParams);
+		   apiUrl = apiUrl + '?';
+		   for (var key in params){
+			   apiUrl= apiUrl + key + '=' + params[key];
+			}
+		   return apiUrl;
+       }
+      });
+    })();
+  </script>
+</dom-module>

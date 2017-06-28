@@ -1,0 +1,53 @@
+{
+	"domains": [{
+			"id": "100104957",
+			"label": "FICO-Score",
+			"scope": "Global"
+		},
+		{
+			"id": "100104962",
+			"label": "ADDRESS LINE 2",
+			"scope": "Global"
+		},
+		{
+			"id": "100104967",
+			"label": "ADDRESS LINE 3",
+			"scope": "Global"
+		},
+		{
+			"id": "100104972",
+			"label": "ADDRESS LINE 4",
+			"scope": "Global"
+		},
+		{
+			"id": "100104977",
+			"label": "ADDRESS LINE 5",
+			"scope": "Global"
+		},
+		{
+			"id": "100104982",
+			"label": "ADDRESS LINE 6",
+			"scope": "Global"
+		},
+		{
+			"id": "100104987",
+			"label": "ADDRESS",
+			"scope": "Global"
+		},
+		{
+			"id": "100104992",
+			"label": "Alacra_ID",
+			"scope": "Global"
+		},
+		{
+			"id": "100104997",
+			"label": "AVID",
+			"scope": "Global"
+		},
+		{
+			"id": "100105007",
+			"label": "BANK IDENTIFIER CODE",
+			"scope": "Global"
+		}
+	]
+}

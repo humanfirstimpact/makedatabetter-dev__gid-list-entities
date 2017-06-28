@@ -1,0 +1,27 @@
+{
+  "entrypoint": "index.html",
+  "shell": "src/my-app.html",
+  "fragments": [
+    "src/my-app-concepts.html",
+    "src/my-concept-coverage.html",
+    "src/my-app-welcome.html",
+    "src/my-goals-visualization.html",
+    "src/my-lob-ecosystem.html",
+    "src/my-request-status.html",
+    "src/my-review-classify.html",
+    "src/my-risk-assessment-cdo.html",
+    "src/my-risk-assessment-data-steward.html",
+    "src/my-header.html",
+    "src/my-icons.html",
+    "src/my-view404.html"
+  ],
+  "sourceGlobs": [
+    "src/**/*",
+    "images/**/*",
+    "bower.json"
+  ],
+  "includeDependencies": [
+    "manifest.json",
+    "bower_components/webcomponentsjs/webcomponents-lite.min.js"
+  ]
+}

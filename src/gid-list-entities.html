@@ -1,0 +1,62 @@
+<!--
+  Wrapper component for concepts
+-->
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="gid-api.html">
+
+<dom-module id="gid-list-entities">
+  <template>
+         <!-- entities -->	
+		<gid-api auto=false
+			http-method="get" api-url={{entityUrl}} response='{{entityResponse}}'
+			api-timeout={{entityTimeout}} api-params={{entityParams}}> </gid-api>			
+	    <!-- entities -->
+
+  </template>
+  <script>
+    (function() {
+     'use strict';
+      Polymer({
+        is:'gid-list-entities',
+        properties:{
+        	   entityUrl:{
+                type: String,
+        	        notify: true
+        	 	},
+        	    entityTimeout : {
+            		type: Number,
+        	        notify: true,
+        	        value : 0
+        	    },
+        	    entityResponse : {
+	     	  		type : Object,
+	     	  		notify : true,
+	     	  		observer : 'entityResponseChanged'
+        	  	},
+        	    entityParams : {
+	     	   		type: String,
+	     	   		notify : true
+     	   	    },
+     	   	    entities: {
+     	          type: Array,
+     	          value: [],
+     	          notify: true
+     	        },
+				conceptId : {
+	     	   		type: String,
+	     	   		notify : true
+     	   	    }
+        },
+        entityResponseChanged : function(newvalue, oldvalue){
+            this.entities = [];
+            if(newvalue != null){
+  	             this.async(function() {
+  	         		this.entities =  this.entities.concat(newvalue.entities);
+  	   		 	          }, 500);
+            }
+           	
+           }
+      });
+    })();
+  </script>
+</dom-module>

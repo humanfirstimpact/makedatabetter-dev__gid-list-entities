@@ -1,0 +1,23 @@
+{
+  "recommendations": [{
+			"property": "Employee Name",
+			"recommended" : "MAYBE",
+			"recommendationFactor" : 65
+		},
+		{
+			"property": "Phone No",
+			"recommended" : "MAYBE",
+			"recommendationFactor" : 78
+		},
+		{
+			"property": "Test",
+			"recommended" : "MAYBE",
+			"recommendationFactor" : 90
+		},
+		{
+			"property": "City",
+			"recommended" : "MAYBE",
+			"recommendationFactor" : 10
+		}
+		]
+}
