@@ -1,9 +1,20 @@
 <!--
-  Wrapper component for concepts
+  Wrapper data component for list entities
 -->
-<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="gid-api.html">
 
+<!--
+`gid-list-entities`
+
+The `gid-list-entities` element is a data component acting as a wrapper  on gid-api used for handling rest calls for list entity component.
+
+    <gid-list-entities entity-url="../assets/applications.json" entities={{entities}}
+			entity-timeout = 0  entity-params='{"token": "AIzaSyAuecFZ9xJXbGDkQYWBmYrtzOGJD-iDIgI"}'></gid-list-entities>
+
+
+@demo demo/index.html
+-->
 <dom-module id="gid-list-entities">
   <template>
          <!-- entities -->	

@@ -1,0 +1,42 @@
+<!doctype html>
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<html>
+<head>
+
+  <title>gid-api</title>
+
+  <link rel="import" href="../gid-list-entities.html">
+  <style>
+  </style>
+</head>
+<body unresolved>
+  <h1>Applications</h1>
+  <div class="horizontal-section-container">
+    <template is="dom-bind" id="app">
+      <gid-list-entities entity-url="../assets/applications.json" entities={{entities}}
+			entity-timeout = 0  entity-params='{"token": "AIzaSyAuecFZ9xJXbGDkQYWBmYrtzOGJD-iDIgI"}'></gid-list-entities>
+        <template is="dom-repeat" items="[[entities]]">
+          <div class="horizontal-section">
+            <p>{{item.name}}</p>
+          </div>
+        </template>
+
+    </template>
+  </div>
+
+  <script>
+    var app = document.querySelector('#app');
+    
+
+   
+  </script>
+</body>
+</html>

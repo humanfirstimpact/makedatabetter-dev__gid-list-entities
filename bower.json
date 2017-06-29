@@ -1,7 +1,8 @@
 {
-  "name": "globalid",
+  "name": "gid-list-entities",
+  "main": "gid-list-entities.html",
   "authors": [
-    "SOUNAK PAL"
+    "Shreya Bharadwaj"
   ],
   "dependencies": {
     "polymer": "Polymer/polymer#^1.6.0",
@@ -9,7 +10,9 @@
     "polymer-global-variables": "1.1.0"
   },
   "devDependencies": {
-    "web-component-tester": "^4.0.0"
-  },
-  "private": true
+  	"iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.0.0",
+    "web-component-tester": "^4.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
+  }
 }
