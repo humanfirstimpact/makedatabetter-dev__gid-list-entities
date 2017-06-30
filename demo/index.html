@@ -11,31 +11,30 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <html>
 <head>
 
-  <title>gid-list-entities</title>
+    <title>gid-list-entities</title>
 
-  <link rel="import" href="../gid-list-entities.html">
-  <style>
-  </style>
+    <link rel="import" href="../gid-list-entities.html">
+    <style>
+    </style>
 </head>
 <body unresolved>
-  <h1>Tables</h1>
-  <div class="horizontal-section-container">
+<h1>Tables</h1>
+
+<div class="horizontal-section-container">
     <template is="dom-bind" id="app">
-      <gid-list-entities entity="table" src-url="../assets/" entities={{entities}}></gid-list-entities>
+        <gid-list-entities entity="tables" entities={{entities}}></gid-list-entities>
         <template is="dom-repeat" items="[[entities]]">
-          <div class="horizontal-section">
-            <p>{{item.name}}</p>
-          </div>
+            <div class="horizontal-section">
+                <p>{{item.label}}</p>
+            </div>
         </template>
-
     </template>
-  </div>
+</div>
 
-  <script>
+<script>
     var app = document.querySelector('#app');
-    
 
-   
-  </script>
+
+</script>
 </body>
 </html>

@@ -1,6 +1,3 @@
 {
-  "applicationUrl" : "applications.json",
-  "databaseUrl" : "databases.json",
-  "schemaUrl" : "schemas.json",
-  "tableUrl" : "tables.json"  
+  "config-key": "config-val"
 }

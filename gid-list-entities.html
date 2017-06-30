@@ -9,119 +9,124 @@
 
 The `gid-list-entities` element is a data component acting as a wrapper  on gid-api used for handling rest calls for list entity component.
 
-    <gid-list-entities entity="table" src-url="../assets/" entities={{entities}}></gid-list-entities>
+    <gid-list-entities entity="tables" api-token="your-api-token" api-url="https://192.168.33.210/api/v0/" entities={{entities}}></gid-list-entities>
+
+If `api-url` is not provided, the component will display sample output for specified entity.
 
 @demo demo/index.html
 -->
 <dom-module id="gid-list-entities">
-  <template>
-         <!-- fetch entity url -->
-         <gid-api auto=false
-			http-method="get" api-url={{configUrl}} response='{{configResponse}}'
-			api-timeout={{configTimeout}} api-params={{configParams}}> </gid-api>	
-         <!--  fetch entity url -->
-         
-         <!-- entities -->	
-		<gid-api auto=false
-			http-method="get" api-url={{entityUrl}} response='{{entityResponse}}'
-			api-timeout={{entityTimeout}} api-params={{entityParams}}> </gid-api>			
-	    <!-- entities -->
+    <template>
+        <!-- fetch entity url -->
+        <gid-api auto=false
+                 http-method="get" api-url={{configUrl}} response='{{configResponse}}'
+                 api-timeout={{configTimeout}} api-params={{configParams}}></gid-api>
+        <!--  fetch entity url -->
 
-  </template>
-  <script>
-    (function() {
-     'use strict';
-      Polymer({
-        is:'gid-list-entities',
-        properties:{
-        	   entity:{
-        		   type: String,
-        		   notify: true,
-        		   observer: 'entityModified'
-        	   },
-        	   srcUrl:{
-	               	type: String,
-	    	        notify: true,
-	    	        value: ''
-    	 	   },
-        	   entityUrl:{
-                	type: String,
-        	        notify: true
-        	 	},
-        	    entityTimeout : {
-            		type: Number,
-        	        notify: true,
-        	        value : 0
-        	    },
-        	    entityResponse : {
-	     	  		type : Object,
-	     	  		notify : true,
-	     	  		observer : 'entityResponseChanged'
-        	  	},
-        	    entityParams : {
-	     	   		type: String,
-	     	   		notify : true
-     	   	    },
-     	   		configUrl:{
-	            	type: String,
-	    	        notify: true
-	    	 	},
-	    	 	configTimeout : {
-	        		type: Number,
-	    	        notify: true,
-	    	        value : 0
-	    	    },
-	    	    configResponse : {
-	     	  		type : Object,
-	     	  		notify : true,
-	     	  		observer : 'configResponseChanged'
-	    	  	},
-	    	  	configParams : {
-	     	   		type: String,
-	     	   		notify : true
-	 	   	    },
-     	   	    entities: {
-     	          type: Array,
-     	          value: [],
-     	          notify: true
-     	        },
-				conceptId : {
-	     	   		type: String,
-	     	   		notify : true
-     	   	    }
-        },
-        entityResponseChanged : function(newvalue, oldvalue){
-            this.entities = [];
-            if(newvalue != null){
-  	             this.async(function() {
-  	         		this.entities =  this.entities.concat(newvalue.entities);
-  	   		 	          }, 500);
-            }
-           	
-           },
-        entityModified : function(){
-        	if(this.entity){
-        		this.configUrl = this.srcUrl + 'config.json';
-        	}
-        },
-        configResponseChanged : function(newvalue, oldvalue){
-        	if(this.entity === "application"){
-    			this.entityUrl = this.srcUrl + newvalue.applicationUrl;
-        	}
-        	else if(this.entity === "database"){
-    			this.entityUrl = this.srcUrl + newvalue.databaseUrl;
-        	}
-        	else if(this.entity === "schema"){
-    			this.entityUrl = this.srcUrl + newvalue.schemaUrl;
-        	}
-        	else{
-        		this.entityUrl = this.srcUrl + newvalue.tableUrl;
-        	}
-    			this.entityParams = JSON.stringify({
-    				"token": "AIzaSyAuecFZ9xJXbGDkQYWBmYrtzOGJD-iDIgI"});
-    			this.entityTimeout = this.entityTimeout - 1;
-        }
-      });
-    })();
-  </script>
+        <!-- entities -->
+        <gid-api auto=false
+                 http-method="get" api-url={{entityUrl}} response='{{entityResponse}}'
+                 api-timeout={{entityTimeout}} api-params={{entityParams}}></gid-api>
+        <!-- entities -->
+
+    </template>
+    <script>
+        (function () {
+            'use strict';
+            Polymer({
+                is: 'gid-list-entities',
+                properties: {
+                    entity: {
+                        type: String,
+                        notify: true,
+                        observer: 'entityModified'
+                    },
+                    apiUrl: {
+                        type: String,
+                        notify: true,
+                        value: ''
+                    },
+                    entityUrl: {
+                        type: String,
+                        notify: true
+                    },
+                    entityTimeout: {
+                        type: Number,
+                        notify: true,
+                        value: 0
+                    },
+                    entityResponse: {
+                        type: Object,
+                        notify: true,
+                        observer: 'entityResponseChanged'
+                    },
+                    entityParams: {
+                        type: String,
+                        notify: true
+                    },
+                    configUrl: {
+                        type: String,
+                        notify: true
+                    },
+                    configTimeout: {
+                        type: Number,
+                        notify: true,
+                        value: 0
+                    },
+                    configResponse: {
+                        type: Object,
+                        notify: true,
+                        observer: 'configResponseChanged'
+                    },
+                    configParams: {
+                        type: String,
+                        notify: true
+                    },
+                    entities: {
+                        type: Array,
+                        value: [],
+                        notify: true
+                    },
+                    conceptId: {
+                        type: String,
+                        notify: true
+                    },
+                    apiToken: {
+                        type: String,
+                        notify: true,
+                        value: ''
+                    }
+                },
+                entityResponseChanged: function (newvalue, oldvalue) {
+                    console.log(newvalue);
+                    this.entities = [];
+
+                    if (newvalue != null) {
+                        this.async(function () {
+                            this.entities = newvalue[this.entity];
+                        }, 500);
+                    }
+
+                },
+                entityModified: function () {
+                    if (this.entity) {
+                        this.configUrl = '../assets/config.json';
+                    }
+                },
+                configResponseChanged: function (newvalue, oldvalue) {
+                    if (!this.apiUrl) {
+                        this.entityUrl = "../assets/" + this.entity + ".json";
+                    } else {
+                        this.entityUrl = this.apiUrl + this.entity;
+                        this.entityParams = JSON.stringify({
+                            "token": this.apiToken
+                        });
+                    }
+                    this.entityTimeout = this.entityTimeout - 1;
+                }
+            });
+        })();
+
+
+    </script>
 </dom-module>
