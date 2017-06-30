@@ -11,18 +11,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <html>
 <head>
 
-  <title>gid-api</title>
+  <title>gid-list-entities</title>
 
   <link rel="import" href="../gid-list-entities.html">
   <style>
   </style>
 </head>
 <body unresolved>
-  <h1>Applications</h1>
+  <h1>Tables</h1>
   <div class="horizontal-section-container">
     <template is="dom-bind" id="app">
-      <gid-list-entities entity-url="../assets/applications.json" entities={{entities}}
-			entity-timeout = 0  entity-params='{"token": "AIzaSyAuecFZ9xJXbGDkQYWBmYrtzOGJD-iDIgI"}'></gid-list-entities>
+      <gid-list-entities entity="table" src-url="../assets/" entities={{entities}}></gid-list-entities>
         <template is="dom-repeat" items="[[entities]]">
           <div class="horizontal-section">
             <p>{{item.name}}</p>

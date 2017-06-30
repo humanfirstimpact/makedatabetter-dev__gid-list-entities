@@ -9,14 +9,18 @@
 
 The `gid-list-entities` element is a data component acting as a wrapper  on gid-api used for handling rest calls for list entity component.
 
-    <gid-list-entities entity-url="../assets/applications.json" entities={{entities}}
-			entity-timeout = 0  entity-params='{"token": "AIzaSyAuecFZ9xJXbGDkQYWBmYrtzOGJD-iDIgI"}'></gid-list-entities>
-
+    <gid-list-entities entity="table" src-url="../assets/" entities={{entities}}></gid-list-entities>
 
 @demo demo/index.html
 -->
 <dom-module id="gid-list-entities">
   <template>
+         <!-- fetch entity url -->
+         <gid-api auto=false
+			http-method="get" api-url={{configUrl}} response='{{configResponse}}'
+			api-timeout={{configTimeout}} api-params={{configParams}}> </gid-api>	
+         <!--  fetch entity url -->
+         
          <!-- entities -->	
 		<gid-api auto=false
 			http-method="get" api-url={{entityUrl}} response='{{entityResponse}}'
@@ -30,8 +34,18 @@ The `gid-list-entities` element is a data component acting as a wrapper  on gid-
       Polymer({
         is:'gid-list-entities',
         properties:{
+        	   entity:{
+        		   type: String,
+        		   notify: true,
+        		   observer: 'entityModified'
+        	   },
+        	   srcUrl:{
+	               	type: String,
+	    	        notify: true,
+	    	        value: ''
+    	 	   },
         	   entityUrl:{
-                type: String,
+                	type: String,
         	        notify: true
         	 	},
         	    entityTimeout : {
@@ -48,6 +62,24 @@ The `gid-list-entities` element is a data component acting as a wrapper  on gid-
 	     	   		type: String,
 	     	   		notify : true
      	   	    },
+     	   		configUrl:{
+	            	type: String,
+	    	        notify: true
+	    	 	},
+	    	 	configTimeout : {
+	        		type: Number,
+	    	        notify: true,
+	    	        value : 0
+	    	    },
+	    	    configResponse : {
+	     	  		type : Object,
+	     	  		notify : true,
+	     	  		observer : 'configResponseChanged'
+	    	  	},
+	    	  	configParams : {
+	     	   		type: String,
+	     	   		notify : true
+	 	   	    },
      	   	    entities: {
      	          type: Array,
      	          value: [],
@@ -66,7 +98,29 @@ The `gid-list-entities` element is a data component acting as a wrapper  on gid-
   	   		 	          }, 500);
             }
            	
-           }
+           },
+        entityModified : function(){
+        	if(this.entity){
+        		this.configUrl = this.srcUrl + 'config.json';
+        	}
+        },
+        configResponseChanged : function(newvalue, oldvalue){
+        	if(this.entity === "application"){
+    			this.entityUrl = this.srcUrl + newvalue.applicationUrl;
+        	}
+        	else if(this.entity === "database"){
+    			this.entityUrl = this.srcUrl + newvalue.databaseUrl;
+        	}
+        	else if(this.entity === "schema"){
+    			this.entityUrl = this.srcUrl + newvalue.schemaUrl;
+        	}
+        	else{
+        		this.entityUrl = this.srcUrl + newvalue.tableUrl;
+        	}
+    			this.entityParams = JSON.stringify({
+    				"token": "AIzaSyAuecFZ9xJXbGDkQYWBmYrtzOGJD-iDIgI"});
+    			this.entityTimeout = this.entityTimeout - 1;
+        }
       });
     })();
   </script>
