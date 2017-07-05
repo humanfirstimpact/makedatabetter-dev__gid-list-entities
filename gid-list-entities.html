@@ -19,13 +19,13 @@ If `api-url` is not provided, the component will display sample output for speci
     <template>
         <!-- fetch entity url -->
         <gid-api auto=false
-                 http-method="get" api-url={{configUrl}} response='{{configResponse}}'
+                 http-method="GET" api-url={{configUrl}} response='{{configResponse}}'
                  api-timeout={{configTimeout}} api-params={{configParams}}></gid-api>
         <!--  fetch entity url -->
 
         <!-- entities -->
         <gid-api auto=false
-                 http-method="get" api-url={{entityUrl}} response='{{entityResponse}}'
+                 http-method="GET" api-url={{entityUrl}} response='{{entityResponse}}'
                  api-timeout={{entityTimeout}} api-params={{entityParams}}></gid-api>
         <!-- entities -->
 
@@ -115,14 +115,10 @@ If `api-url` is not provided, the component will display sample output for speci
                 },
                 configResponseChanged: function (newvalue, oldvalue) {
                     if (!this.apiUrl) {
-                        this.entityUrl = "../assets/" + this.entity + ".json";
+                        this.entityUrl = '../assets/' + this.entity + '.json';
                     } else {
-                        this.entityUrl = this.apiUrl + this.entity;
-                        this.entityParams = JSON.stringify({
-                            "token": this.apiToken
-                        });
+                        this.entityUrl = this.apiUrl;
                     }
-                    this.entityTimeout = this.entityTimeout - 1;
                 }
             });
         })();

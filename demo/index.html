@@ -18,11 +18,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </style>
 </head>
 <body unresolved>
-<h1>Tables</h1>
+<h1>Columns</h1>
 
 <div class="horizontal-section-container">
     <template is="dom-bind" id="app">
-        <gid-list-entities entity="tables" entities={{entities}}></gid-list-entities>
+        <gid-list-entities api-url='https://ql50yzu0fj.execute-api.us-east-1.amazonaws.com/dev/concepts/100002/applications/100003/databases/100004/schemas/100005/tables/100007/columns' entity="columns" entities={{entities}}></gid-list-entities>
         <template is="dom-repeat" items="[[entities]]">
             <div class="horizontal-section">
                 <p>{{item.label}}</p>
