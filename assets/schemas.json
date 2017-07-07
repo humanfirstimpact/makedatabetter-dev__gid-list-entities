@@ -2,13 +2,13 @@
   "schemas": [
 	{
 	  "id": "28379089",
-	  "label": "DWH_77",
+	  "label": "Sample DWH_77",
 	  "database": "28379032",
 	  "catalog": "10000001"
 	},
 	{
 	  "id": "28379090",
-	  "label": "DWH_77_1",
+	  "label": "Sample DWH_77_1",
 	  "database": "28379032",
 	  "catalog": "10000001"
 	},
@@ -20,43 +20,43 @@
 	},
 	{
 	  "id": "28379092",
-	  "label": "DWH_GEM_230",
+	  "label": "Sample DWH_GEM_230",
 	  "database": "28379032",
 	  "catalog": "10000001"
 	},
 	{
 	  "id": "28379093",
-	  "label": "DWH_LINUX_83",
+	  "label": "Sample DWH_LINUX_83",
 	  "database": "28379032",
 	  "catalog": "10000001"
 	},
 	{
 	  "id": "28379094",
-	  "label": "DWH_PARENT_64_8",
+	  "label": "Sample DWH_PARENT_64_8",
 	  "database": "28379032",
 	  "catalog": "10000001"
 	},
 	{
 	  "id": "28379095",
-	  "label": "DWH_PT_83",
+	  "label": "Sample DWH_PT_83",
 	  "database": "28379032",
 	  "catalog": "10000001"
 	},
 	{
 	  "id": "28379096",
-	  "label": "DWH_RULE_77",
+	  "label": "Sample DWH_RULE_77",
 	  "database": "28379032",
 	  "catalog": "10000001"
 	},
 	{
 	  "id": "28379097",
-	  "label": "DWH_TESTV9_UPGRADE",
+	  "label": "Sample DWH_TESTV9_UPGRADE",
 	  "database": "28379032",
 	  "catalog": "10000001"
 	},
 	{
 	  "id": "28379098",
-	  "label": "DWH_TEST_210",
+	  "label": "Sample DWH_TEST_210",
 	  "database": "28379032",
 	  "catalog": "10000001"
 	}

@@ -9,8 +9,10 @@
 
 The `gid-list-entities` element is a data component acting as a wrapper  on gid-api used for handling rest calls for list entity component.
 
-    <gid-list-entities entity="tables" api-token="your-api-token" api-url="https://192.168.33.210/api/v0/" entities={{entities}}></gid-list-entities>
-
+<gid-list-entities api-url='https://ql50yzu0fj.execute-api.us-east-1.amazonaws.com/dev'
+        concept-id = "100002" application-id = "100003" database-id = "100004" schema-id = "100005" table-id = "100007"
+        entity="columns" entities={{entities}}></gid-list-entities>
+        
 If `api-url` is not provided, the component will display sample output for specified entity.
 
 @demo demo/index.html

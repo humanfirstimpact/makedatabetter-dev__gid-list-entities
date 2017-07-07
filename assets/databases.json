@@ -12,42 +12,42 @@
 	},
 	{
 	  "id": "28639087",
-	  "label": "TELECOM@210",
+	  "label": "Sample TELECOM@210",
 	  "catalog": "10000001"
 	},
 	{
 	  "id": "28639103",
-	  "label": "CRM@210",
+	  "label": "Sample CRM@210",
 	  "catalog": "10000001"
 	},
 	{
 	  "id": "28639119",
-	  "label": "DW@210",
+	  "label": "Sample DW@210",
 	  "catalog": "10000001"
 	},
 	{
 	  "id": "28639135",
-	  "label": "SALESDB@210",
+	  "label": "Sample SALESDB@210",
 	  "catalog": "10000001"
 	},
 	{
 	  "id": "28639151",
-	  "label": "PRODUCT_HUB@210",
+	  "label": "Sample PRODUCT_HUB@210",
 	  "catalog": "10000001"
 	},
 	{
 	  "id": "28639168",
-	  "label": "ORACLE@CODD",
+	  "label": "Sample ORACLE@CODD",
 	  "catalog": "10000001"
 	},
 	{
 	  "id": "28639287",
-	  "label": "ORACLE@FEYNMAN",
+	  "label": "Sample ORACLE@FEYNMAN",
 	  "catalog": "10000001"
 	},
 	{
 	  "id": "36311852",
-	  "label": "CRM_8@Cucumber",
+	  "label": "Sample CRM_8@Cucumber",
 	  "catalog": "10000001"
 	}
   ],
