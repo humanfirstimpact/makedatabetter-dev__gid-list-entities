@@ -87,9 +87,34 @@ If `api-url` is not provided, the component will display sample output for speci
                         value: [],
                         notify: true
                     },
+                    lobId: {
+                    	type: String,
+                        notify: true
+                    },
                     conceptId: {
                         type: String,
-                        notify: true
+                        notify: true,
+                        value: ''
+                    },
+                    applicationId: {
+                    	type: String,
+                        notify: true,
+                        value: ''
+                    },
+                    databaseId: {
+                    	type: String,
+                        notify: true,
+                        value: ''
+                    },
+                    schemaId: {
+                    	type: String,
+                        notify: true,
+                        value: ''
+                    },
+                    tableId: {
+                    	type: String,
+                        notify: true,
+                        value: ''
                     },
                     apiToken: {
                         type: String,
@@ -117,7 +142,33 @@ If `api-url` is not provided, the component will display sample output for speci
                     if (!this.apiUrl) {
                         this.entityUrl = '../assets/' + this.entity + '.json';
                     } else {
-                        this.entityUrl = this.apiUrl;
+                    	if(this.lobId){
+							 this.entityUrl = this.apiUrl + "/lobs/" + this.lobId + "/concepts";
+						}
+						else if(this.entity === "applications"){
+							this.entityUrl = this.apiUrl + "/concepts/" + this.conceptId + "/applications";
+						}
+						else if(this.entity === "databases"){
+							this.entityUrl = this.apiUrl + "/concepts/" + this.conceptId + 
+											 "/applications/" + this.applicationId + "/databases";
+						}
+						else if(this.entity === "schemas"){
+							this.entityUrl = this.apiUrl + "/concepts/" + this.conceptId + 
+							 				"/applications/" + this.applicationId + "/databases/" + 
+							 				this.databaseId + "/schemas" ;
+						}
+						else if(this.entity === "tables"){
+							this.entityUrl = this.apiUrl + "/concepts/" + this.conceptId + 
+							 				"/applications/" + this.applicationId + "/databases/" + 
+							 				this.databaseId + "/schemas/"  + this.schemaId +
+							 				"/tables";
+						}
+						else if(this.entity === "columns"){
+							this.entityUrl = this.apiUrl + "/concepts/" + this.conceptId + 
+							 				"/applications/" + this.applicationId + "/databases/" + 
+							 				this.databaseId + "/schemas/"  + this.schemaId +
+							 				"/tables/" + this.tableId + "/columns";
+						}
                     }
                 }
             });
