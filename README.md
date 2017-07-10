@@ -1,6 +1,12 @@
 # \<gid-list-entities\>
 
+In this component, api-url and entity are mandatory parameters. 
 
+Rest of the parameters depends on what the user wants to fetch. For e.g. is the user wants to fetch the list of applications against a concept, the user
+has to provide the following parameters :
+1. api-url
+2. entity
+3. concept i.e the concept id
 
 ## Install the Polymer-CLI
 
