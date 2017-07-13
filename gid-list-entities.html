@@ -141,13 +141,13 @@ If `api-url` is not provided, the component will display sample output for speci
                     }
 
                 },
-                entityModified: function () {
-                    if (this.entity) {
-                        this.configUrl = this.importPath + 'assets/config.json';
-                        this.configTimeout =  this.configTimeout - 1;
-                    }
-                },
-                configResponseChanged: function (newvalue, oldvalue) {
+//                 entityModified: function () {
+//                     if (this.entity) {
+//                         this.configUrl = this.importPath + 'assets/config.json';
+//                         this.configTimeout =  this.configTimeout - 1;
+//                     }
+//                 },
+                entityModified: function (newvalue, oldvalue) {
                 	if (this.entity) {
 	                    if (!this.apiUrl) {
 	                        this.entityUrl = this.importPath + 'assets/' + this.entity.toLowerCase() + '.json';
