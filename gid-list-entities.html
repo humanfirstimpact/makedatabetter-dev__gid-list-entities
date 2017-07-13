@@ -91,32 +91,38 @@ If `api-url` is not provided, the component will display sample output for speci
                     },
                     lob: {
                     	type: String,
-                        notify: true
+                        notify: true,
+                        observer: 'entityModified'
                     },
                     concept: {
                         type: String,
                         notify: true,
-                        value: ''
+                        value: '',
+                        observer: 'entityModified'
                     },
                     application: {
                     	type: String,
                         notify: true,
-                        value: ''
+                        value: '',
+                        observer: 'entityModified'
                     },
                     database: {
                     	type: String,
                         notify: true,
-                        value: ''
+                        value: '',
+                        observer: 'entityModified'
                     },
                     schema: {
                     	type: String,
                         notify: true,
-                        value: ''
+                        value: '',
+                        observer: 'entityModified'
                     },
                     table: {
                     	type: String,
                         notify: true,
-                        value: ''
+                        value: '',
+                        observer: 'entityModified'
                     },
                     apiToken: {
                         type: String,
@@ -135,46 +141,50 @@ If `api-url` is not provided, the component will display sample output for speci
                     }
 
                 },
-                entityModified: function () {
-                    if (this.entity) {
-                        this.configUrl = '../assets/config.json';
-                    }
-                },
-                configResponseChanged: function (newvalue, oldvalue) {
-                    if (!this.apiUrl) {
-                        this.entityUrl = '../assets/' + this.entity.toLowerCase() + '.json';
-                    } else {
-                    	if(this.entity === "LOBS"){
-							 this.entityUrl = this.apiUrl + "/lobs/";
-						}
-                    	else if(this.entity === "CONCEPTS"){
-                    		this.entityUrl = this.apiUrl + "/lobs/" + this.lob + "/concepts";
-						}
-						else if(this.entity === "APPLICATIONS"){
-							this.entityUrl = this.apiUrl + "/concepts/" + this.concept + "/applications";
-						}
-						else if(this.entity === "DATABASES"){
-							this.entityUrl = this.apiUrl + "/concepts/" + this.concept + 
-											 "/applications/" + this.application + "/databases";
-						}
-						else if(this.entity === "SCHEMAS"){
-							this.entityUrl = this.apiUrl + "/concepts/" + this.concept + 
-							 				"/applications/" + this.application + "/databases/" + 
-							 				this.database + "/schemas" ;
-						}
-						else if(this.entity === "TABLES"){
-							this.entityUrl = this.apiUrl + "/concepts/" + this.concept + 
-							 				"/applications/" + this.application + "/databases/" + 
-							 				this.database + "/schemas/"  + this.schema +
-							 				"/tables";
-						}
-						else if(this.entity === "COLUMNS"){
-							this.entityUrl = this.apiUrl + "/concepts/" + this.concept + 
-							 				"/applications/" + this.application + "/databases/" + 
-							 				this.database + "/schemas/"  + this.schema +
-							 				"/tables/" + this.table + "/columns";
-						}
-                    }
+//                 entityModified: function () {
+//                     if (this.entity) {
+//                         this.configUrl = '../assets/config.json';
+//                         this.configTimeout =  this.configTimeout - 1;
+//                     }
+//                 },
+                entityModified: function (newvalue, oldvalue) {
+                	if (this.entity) {
+	                    if (!this.apiUrl) {
+	                        this.entityUrl = '../assets/' + this.entity.toLowerCase() + '.json';
+	                    } else {
+	                    	if(this.entity === "LOBS"){
+								 this.entityUrl = this.apiUrl + "/lobs/";
+							}
+	                    	else if(this.entity === "CONCEPTS"){
+	                    		this.entityUrl = this.apiUrl + "/lobs/" + this.lob + "/concepts";
+							}
+							else if(this.entity === "APPLICATIONS"){
+								this.entityUrl = this.apiUrl + "/concepts/" + this.concept + "/applications";
+							}
+							else if(this.entity === "DATABASES"){
+								this.entityUrl = this.apiUrl + "/concepts/" + this.concept + 
+												 "/applications/" + this.application + "/databases";
+							}
+							else if(this.entity === "SCHEMAS"){
+								this.entityUrl = this.apiUrl + "/concepts/" + this.concept + 
+								 				"/applications/" + this.application + "/databases/" + 
+								 				this.database + "/schemas" ;
+							}
+							else if(this.entity === "TABLES"){
+								this.entityUrl = this.apiUrl + "/concepts/" + this.concept + 
+								 				"/applications/" + this.application + "/databases/" + 
+								 				this.database + "/schemas/"  + this.schema +
+								 				"/tables";
+							}
+							else if(this.entity === "COLUMNS"){
+								this.entityUrl = this.apiUrl + "/concepts/" + this.concept + 
+								 				"/applications/" + this.application + "/databases/" + 
+								 				this.database + "/schemas/"  + this.schema +
+								 				"/tables/" + this.table + "/columns";
+							}
+	                    	this.entityTimeout =  this.entityTimeout - 1;
+	                    }
+                	}
                 }
             });
         })();
