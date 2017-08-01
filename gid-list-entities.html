@@ -100,11 +100,6 @@ If `api-url` is not provided, the component will display sample output for speci
                         value: '',
                         observer: 'entityModified'
                     },
-                    apiToken: {
-                        type: String,
-                        notify: true,
-                        value: ''
-                    },
                     path: {
                     	type: String,
                         notify: true,
@@ -128,8 +123,14 @@ If `api-url` is not provided, the component will display sample output for speci
                 },
                 entityModified: function (newvalue, oldvalue) {
                 	if (this.entity) {
-                		this.apiEntity = this.entity;
-                	}
+                	 	if (!this.apiUrl) {
+        	      			this.entityUrl = this.importPath + 'assets/' + this.entity.toLowerCase() + '.json';
+        	                this.entityTimeout =  this.entityTimeout - 1;
+              			}
+                		else {
+                 			this.apiEntity = this.entity;
+                 		}
+                 	}
 					
                 },
                 pathReceived: function(){
@@ -142,14 +143,8 @@ If `api-url` is not provided, the component will display sample output for speci
                 					}
                 			}
                 		}
-                		if (!this.apiUrl) {
-                			this.entityUrl = this.importPath + 'assets/' + this.entity.toLowerCase() + '.json';
-	                        this.entityTimeout =  this.entityTimeout - 1;
-                		}
-                		else{
-                			this.entityUrl = this.apiUrl + res.join("");
-                			this.entityTimeout =  this.entityTimeout - 1;
-                		}
+               			this.entityUrl = this.apiUrl + res.join("");
+               			this.entityTimeout =  this.entityTimeout - 1;
                 		
                 	}
                 }
