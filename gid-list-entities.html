@@ -126,7 +126,7 @@ If `api-url` is not provided, the component will display sample output for speci
                 entityModified: function (newvalue, oldvalue) {
                 	if (this.entity) {
                 	 	if (!this.apiUrl) {
-        	      			this.entityUrl = this.importPath + 'assets/' + this.entity.toLowerCase() + '.json';
+        	      			this.entityUrl = this.importPath + 'assets/json/' + this.entity.toLowerCase() + '.json';
         	                this.entityTimeout =  this.entityTimeout - 1;
               			}
                 		else {

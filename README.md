@@ -1,12 +1,53 @@
-# \<gid-list-entities\>
+## \<gid-list-entities\>
 
-In this component, api-url and entity are mandatory parameters. 
+This data component is used for listing the details of various entities.
 
-Rest of the parameters depends on what the user wants to fetch. For e.g. is the user wants to fetch the list of applications against a concept, the user
-has to provide the following parameters :
+	<gid-list-entities
+	 api-url='https://ql50yzu0fj.execute-api.us-east-1.amazonaws.com/dev'
+	 concept = "100002" application = "100003" database = "100004" schema = "100005" table = 	  	"100007" entity="COLUMNS" entities={{entities}}>
+	 </gid-list-entities>
+
+In this component, 'entity' is a mandatory parameter. 
+
+Rest of the parameters depends on what the user wants to fetch. For e.g. is the user wants to fetch the list of applications against a concept, the user has to provide the following parameters :
 1. api-url
 2. entity
 3. concept i.e the concept id
+
+If `api-url` is not provided, the component will display sample output for specified entity.
+
+API endpoint:
+	
+  Let us assume that we want to fetch columns
+  
+    GET /concepts/{conceptId}/applications/{applicationId}/databases/{databaseId}/schemas/{schemaId}/tables/{tableId}/columns
+    
+Input:
+- Concept Id
+- Application Id
+- Database Id
+- Schema Id
+- Table Id
+
+Sample Input: 
+
+    GET /concepts/100002/applications/100003/databases/100004/schemas/100005/tables/100007/columns
+
+Output:
+Details of th entity
+
+
+The output of this components will be as follows:
+
+{
+	"columns": [{
+		"id": "200001",
+		"label": "id"
+	}, {
+		"id": "200009",
+		"label": "ship-city"
+	}]
+}
 
 ## Install the Polymer-CLI
 
