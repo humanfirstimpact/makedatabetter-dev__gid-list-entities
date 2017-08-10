@@ -5,56 +5,41 @@
 <link rel="import" href="../gid-api/gid-api.html">
 
 <!--
-`gid-list-entities`
 
-This data component is used for listing the details of various entities.
+A data component to get list of various types entities
 
-	<gid-list-entities
-	 api-url='https://ql50yzu0fj.execute-api.us-east-1.amazonaws.com/dev'
-	 concept = "100002" application = "100003" database = "100004" schema = "100005" table = "100007" entity="COLUMNS" entities={{entities}}>
-	 </gid-list-entities>
+    <gid-list-entities user='1' entity='ENTITY-NAME' entityResponse='{{reponse}}' apiURL='api-url'></<gid-list-concepts>
 
-In this component, 'entity' is a mandatory parameter. 
+##### **Inputs:**
 
-Rest of the parameters depends on what the user wants to fetch. For e.g. is the user wants to fetch the list of applications against a concept, the user has to provide the following parameters :
-1. api-url
-2. entity
-3. concept i.e the concept id
+- `user` - user id  (mandatory)
 
-If `api-url` is not provided, the component will display sample output for specified entity.
+- `entity` - name of the entity in capital (mandatory). See the *Supported Entities* table for more details.
 
-API endpoint:
-	
-  Let us assume that we want to fetch columns
-  
-    GET /concepts/{conceptId}/applications/{applicationId}/databases/{databaseId}/schemas/{schemaId}/tables/{tableId}/columns
-    
-Input:
-- Concept Id
-- Application Id
-- Database Id
-- Schema Id
-- Table Id
+- `apiUrl` - api endpoint url. If this attribute is not provided, then the component would fetch sample response from mock json
 
-Sample Input: 
-
-    GET /concepts/100002/applications/100003/databases/100004/schemas/100005/tables/100007/columns
-
-Output:
-Details of the entity
+- This component supports a list of filter attributes combined with appropriate entity. See the *Supported Entities* table for more details. For example, to get list of databases filtered by a concept and an application use the following code,
 
 
-The output of this components will be as follows:
+    <gid-list-entities user='1' entity='DATABASE' concept='concept-id' application='app-id' entityResponse='{{reponse}}' apiURL='api-url'></<gid-list-concepts>
 
-	{
-		"columns": [{
-			"id": "200001",
-			"label": "id"
-		}, {
-			"id": "200009",
-			"label": "ship-city"
-		}]
-	}
+##### Outputs:
+
+- `entityResponse` - list of entity with its basic details
+
+##### **Supported Entities**
+
+| Entity Name  | Attributes                               |
+| ------------ | ---------------------------------------- |
+| COLUMNS      | concept, application, database, schema, table |
+| TABLES       | concept, application, database, schema   |
+| SCHEMAS      | concept, application, database           |
+| DATABASES    | concept, application                     |
+| APPLICATIONS | concept                                  |
+| CONCEPTS     | lob                                      |
+| LOBS         |                                          |
+
+
 
 
 @demo demo/index.html
