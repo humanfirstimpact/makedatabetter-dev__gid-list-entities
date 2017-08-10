@@ -136,6 +136,16 @@ The output of this components will be as follows:
                         notify: true,
                         value: ''
                     },
+                    limit: {
+                    	   type: String,
+                        notify: true,
+                        value: ''
+                    },
+                    offset: {
+                    	type: String,
+                    	notify: true,
+                    	value: ''
+                    },
                     entity: {
                         type: String,
                         notify: true,
@@ -186,6 +196,9 @@ The output of this components will be as follows:
                 			}
                 		}
                			this.entityUrl = this.apiUrl + res.join("");
+               			this.entityParams = JSON.stringify({
+            	        	  "offset": this.offset,
+            	        	  "limit": this.limit});
                			this.entityTimeout =  this.entityTimeout - 1;
                 		
                 	}
