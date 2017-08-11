@@ -152,7 +152,8 @@ A data component to get list of various types entities
                 },
                 entityResponseChanged: function (newvalue, oldvalue) {
                     this.entities = [];
-
+                    this.apiEntity = '';
+                    this.path = '';
                     if (newvalue != null) {
                         this.async(function () {
                             this.entities = newvalue[this.entity.toLowerCase()];
