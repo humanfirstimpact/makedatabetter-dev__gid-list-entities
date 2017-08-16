@@ -54,8 +54,8 @@ A data component to get list of various types entities
 
         <!-- fetch entities -->
         <gid-api auto=false
-                 method="GET" api-url={{entityUrl}} response='{{entityResponse}}'
-                 api-timeout={{entityTimeout}} api-params={{entityParams}}></gid-api>
+                 method="GET" api-url={{entityUrl}}  response='{{entityResponse}}'
+                 api-params={{entityParams}} api-token = {{entityToken}} api-timeout={{entityTimeout}}></gid-api>
         <!-- fetch entities -->
 
     </template>
@@ -65,6 +65,11 @@ A data component to get list of various types entities
             Polymer({
                 is: 'gid-list-entities',
                 properties: {
+                	apiToken: {
+                    	type: String,
+                        notify: true,
+                        value : ''
+                    },
                 	apiUrl: {
                         type: String,
                         notify: true,
@@ -86,6 +91,10 @@ A data component to get list of various types entities
                     },
                     entityParams: {
                         type: String,
+                        notify: true
+                    },
+                    entityToken: {
+                    	type: String,
                         notify: true
                     },
                     entities: {
@@ -149,6 +158,7 @@ A data component to get list of various types entities
                     	type: String,
                         notify: true
                     }
+                    
                 },
                 entityResponseChanged: function (newvalue, oldvalue) {
                     this.entities = [];
@@ -187,6 +197,9 @@ A data component to get list of various types entities
                			this.entityParams = JSON.stringify({
             	        	  "offset": this.offset,
             	        	  "limit": this.limit});
+               			if(this.apiToken){
+               				this.entityToken =  this.apiToken;
+               			}
                			this.entityTimeout =  this.entityTimeout - 1;
                 		
                 	}
