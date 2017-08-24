@@ -107,6 +107,11 @@ A data component to get list of various types entities
                         value: [],
                         notify: true
                     },
+                    paramsArr: {
+     	           	   type: Array,
+     	           	   notify: true,
+     	           	   value: ["offset", "limit"]
+                     },
                     lob: {
                     	type: String,
                         notify: true,
@@ -261,9 +266,14 @@ A data component to get list of various types entities
                 			}
                 		}
                			this.entityUrl = this.apiUrl + res.join("");
-               			this.entityParams = JSON.stringify({
-            	        	  "offset": this.offset,
-            	        	  "limit": this.limit});
+               			var paramsObj = {};
+               			for (var i in this.paramsArr){
+                        	if(this[this.paramsArr[i]]){
+                        		paramsObj[this.paramsArr[i]]= this[this.paramsArr[i]];;
+                        		}
+                        	
+                        }
+               			this.entityParams = JSON.stringify(paramsObj);
                			if(this.apiToken){
                				this.entityToken =  this.apiToken;
                			}
