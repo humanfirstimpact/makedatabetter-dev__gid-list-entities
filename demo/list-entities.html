@@ -1,0 +1,54 @@
+<link rel="import" href="../gid-list-entities.html">
+
+<dom-module id="list-entities">
+    <template>
+    	<h1>Applications</h1>
+        <gid-list-entities api-url='https://srv-34-197-77-167.globalids.com:8443/api/v1'
+        all = true entity='applications'
+        limit='100' offset='0' api-token = 'MTAxNjUwMzAxMTUwMzU1NjY3ODU3MDA5MDFY'
+        entities={{entities}}></gid-list-entities>
+        <template is="dom-if" if="[[entitiesReceived]]">
+	        <template is="dom-repeat" items="[[entities]]">
+	            <div class="horizontal-section">
+	                <p>{{item.label}}</p>
+	            </div>
+	        </template>
+        </template>
+        <template is="dom-if" if="![[entitiesReceived]]">
+            <div class="horizontal-section">
+                <p>{{entities.userMessage}}</p>
+            </div>
+        </template>
+    </template>
+  <script>
+    (function() {
+     'use strict';
+      Polymer({
+        is:'list-entities',
+        properties:{
+        		entities: {
+     	          type: Array,
+     	          value: [],
+     	          notify: true,
+     	          observer: 'responseReceived'
+     	        },
+     	        entitiesReceived: {
+     	        	type: Boolean,
+     	        	notify: true,
+     	        	value: false
+     	        }
+        },
+         responseReceived: function () {
+        	 if(this.entities){	
+				if(this.entities.errorCode){
+					this.entitiesReceived = false;
+				}
+				else{
+					this.entitiesReceived =  true;
+				}
+        	 }
+         }
+      });
+    })();
+  </script>
+</dom-module>

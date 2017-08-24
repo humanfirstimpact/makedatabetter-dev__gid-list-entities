@@ -13,26 +13,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <title>gid-list-entities</title>
 
-    <link rel="import" href="../gid-list-entities.html">
+    <link rel="import" href="list-entities.html">
     <style>
     </style>
 </head>
 <body unresolved>
-<h1>Columns</h1>
 
-<div class="horizontal-section-container">
-    <template is="dom-bind" id="app">
-        <gid-list-entities api-url='https://ql50yzu0fj.execute-api.us-east-1.amazonaws.com/dev'
-        concept = '100002' application = '100003' database = '100004' schema = '100005' table = '100007'
-        entity='COLUMNS' limit='100' offset='10' api-token = 'VVNfMjItMzg0MjY1N18xMTA1MTY0MzI5NzY0MTUwMjQ1MTUxMTQ1MzI3MDFY'
-        entities={{entities}}></gid-list-entities>
-        <template is="dom-repeat" items="[[entities]]">
-            <div class="horizontal-section">
-                <p>{{item.label}}</p>
-            </div>
-        </template>
-    </template>
-</div>
+<list-entities></list-entities>
 
 <script>
     var app = document.querySelector('#app');
