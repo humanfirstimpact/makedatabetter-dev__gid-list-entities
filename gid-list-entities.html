@@ -8,7 +8,7 @@
 
 A data component to get list of various types entities
 
-    <gid-list-entities user='1' entity='ENTITY-NAME' entityResponse='{{reponse}}' apiURL='api-url'></<gid-list-concepts>
+    <gid-list-entities user='1' entity='ENTITY-NAME' entities='{{entities}}'></gid-list-entities>
 
 ##### **Inputs:**
 
@@ -21,8 +21,10 @@ A data component to get list of various types entities
 - This component supports a list of filter attributes combined with appropriate entity. See the *Supported Entities* table for more details. For example, to get list of databases filtered by a concept and an application use the following code,
 
 
-    <gid-list-entities user='1' entity='DATABASE' concept='concept-id' application='app-id' entityResponse='{{reponse}}' apiURL='api-url'></<gid-list-concepts>
+    <gid-list-entities "https://ql50yzu0fj.execute-api.us-east-1.amazonaws.com/dev" user='1' entity='DATABASE' concept='concept-id' application='app-id' entities='{{entities}}'></<gid-list-concepts>
 
+The property 'entities' returns the response against the rest call.	
+	
 - `limit`  & `offset` - use limit and offset parameters to paginate records
 
 ##### Outputs:
