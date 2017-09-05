@@ -279,7 +279,8 @@ The property 'entities' returns the response against the rest call.
                 				this._pathKey = 'default'
                 			}
 
-                            if(!this.all && !this.concept){
+                            if(!this.all && !this.concept && this.entity.toLowerCase() !== 'lobs'
+                                    && this.entity.toLowerCase() !== 'concepts'){
                                 console.log("Please provide either concept parameter or all parameter");
                             }else{
                 			    this._setApiEntity();
