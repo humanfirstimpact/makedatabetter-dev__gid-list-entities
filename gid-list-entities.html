@@ -175,7 +175,7 @@ The property 'entities' returns the response against the rest call.
                     	notify: true,
                     	value: ''
                     },
-                    /*This property needs to be set to 'true' in order to fetch all the values of the mentioned entity*/ 
+                    /*This property needs to be set to 'true' in order to fetch all the values of the mentioned entity*/
                     all: {
                     	type: Boolean,
                     	notify: true,
@@ -212,9 +212,9 @@ The property 'entities' returns the response against the rest call.
                     	notify: true,
                     	value: ''
                     }
-                    
+
                 },
-                
+
                 /* Success response handler */
                 _entityResponseChanged: function (newvalue, oldvalue) {
                     this.entities = [];
@@ -226,7 +226,7 @@ The property 'entities' returns the response against the rest call.
                     }
 
                 },
-                
+
                 /* Error response handler */
                 _entityErrorReceived :  function(newvalue, oldvalue){
 	               	 this.entities = [];
@@ -237,7 +237,7 @@ The property 'entities' returns the response against the rest call.
 	       		   		 	          }, 500);
 	       	        	}
        	     	},
-       	     	
+
        	     	/* Method to _reset '_apiEntity' 'all and '_path' properties */
        	     	_reset: function(){
 	       	     	this._apiEntity = '';
@@ -245,7 +245,7 @@ The property 'entities' returns the response against the rest call.
 	                this._path = '';
 	                this.all = false;
        	     	},
-       	     	
+
        	     	/* Entity observer */
                 _entityObserver: function (newvalue, oldvalue) {
                 	if (this.entity) {
@@ -255,39 +255,39 @@ The property 'entities' returns the response against the rest call.
               			}
                 		else {
                 			if(this.entity.toLowerCase() === 'columns'){
-                				if(this.concept){
-                					if(this.table){
-                						this._subEntity = 'table';
-                					}
-                					else if(this.schema){
-                						this._subEntity = 'schema';
-                					}
-                					else if(this.database){
-                						this._subEntity = 'database';
-                					}
-                					else if(this.application){
-                						this._subEntity = 'application';
-                					}
-                					else{
-                						console.log("Please provide application parameter");
-                					}
-                					
-                				}
-                				else{
-                					console.log("Please provide concept parameter");
-                				}
+                                if(this.table){
+                                    this._subEntity = 'table';
+                                }
+                                else if(this.schema){
+                                    this._subEntity = 'schema';
+                                }
+                                else if(this.database){
+                                    this._subEntity = 'database';
+                                }
+                                else if(this.application){
+                                    this._subEntity = 'application';
+                                }
+                                else{
+                                    console.log("Please provide application parameter");
+                                }
                 			}
-                			if(this.all){
+
+                            if(this.all){
                 				this._pathKey =  'all';
                 			}
                 			else{
                 				this._pathKey = 'default'
                 			}
-                			this._setApiEntity();
-                 			
+
+                            if(!this.all && !this.concept){
+                                console.log("Please provide either concept parameter or all parameter");
+                            }else{
+                			    this._setApiEntity();
+                            }
+
                  		}
                  	}
-					
+
                 },
 				/* Set '_apiEntity' property */
                 _setApiEntity: function(){
@@ -300,7 +300,7 @@ The property 'entities' returns the response against the rest call.
                 			this._apiEntity = this.entity;
                 		}
                 },
-                
+
                 /* Observer for api path */
                 _pathReceived: function(){
                 	if(this._path){
@@ -318,14 +318,14 @@ The property 'entities' returns the response against the rest call.
                         	if(this[this._paramsArr[i]]){
                         		paramsObj[this._paramsArr[i]]= this[this._paramsArr[i]];;
                         		}
-                        	
+
                         }
                			this._entityParams = JSON.stringify(paramsObj);
                			if(this.apiToken){
                				this._entityToken =  this.apiToken;
                			}
                			this._entityTimeout =  this._entityTimeout - 1;
-                		
+
                 	}
                 }
             });

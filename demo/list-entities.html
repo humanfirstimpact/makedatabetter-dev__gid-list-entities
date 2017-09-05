@@ -4,9 +4,10 @@
     <template>
     	<h1>Columns</h1>
         <gid-list-entities api-url='https://srv-34-197-77-167.globalids.com:8443/api/v1'
-        concept = '-1863623720071840429' entity='COLUMNS' table='7388252650810326995'
-        limit='100' offset='0' api-token = 'MTAxNjUwMzAxMTUwNDYwMjEzMjIwOTA5MDFY'
+                           api-token = 'MTAxNjUwMzAxMTUwNDYwMjEzMjIwOTA5MDFY'
+                           entity="COLUMNS" all="true" table="2367057770493260424"
         entities={{entities}}></gid-list-entities>
+
         <template is="dom-if" if="[[entitiesReceived]]">
 	        <template is="dom-repeat" items="[[entities]]">
 	            <div class="horizontal-section">
