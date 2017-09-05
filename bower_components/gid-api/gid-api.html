@@ -1,0 +1,162 @@
+<!--
+  Wrapper component to handle rest calls
+-->
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-ajax/iron-ajax.html">
+
+<script src="../lodash/dist/lodash.min.js"></script>
+<script src="assets/js/gidRestApi.js"></script>
+<!--
+`gid-api`
+
+The `gid-api` element is a wrapper on iron ajax used for handling rest calls.
+
+    <gid-api auto=false
+			method="get" api-url="../assets/json/test.json" response={{ajaxResponse}}
+			api-timeout= 0>
+    </gid-api>
+
+With `auto` set to `true`, the element performs a request whenever
+its `url`, `params` or `body` properties are changed. Automatically generated
+requests will be debounced in the case that multiple attributes are changed
+sequentially.
+
+Note: The `params` attribute must be double quoted JSON.
+
+You can trigger a request explicitly by calling `generateRequest` on the
+element.
+
+@demo demo/index.html
+-->
+<dom-module id="gid-api">
+  <template>
+         <iron-ajax
+            auto = {{auto}}
+		    url = '{{apiUrl}}'
+		    body = "{{requestBody}}"
+		    params ='{{_processParams(apiParams)}}'
+		    content-type="{{apiContentType}}"
+            method="{{method}}"
+		    handle-as="json"
+		    headers = '{{apiHeader}}'
+		    last-response="{{response}}"
+		    last-error="{{error}}"
+		    debounce-duration="300"
+		    timeout = {{apiTimeout}}>
+		 </iron-ajax> 
+
+  </template>
+  <script>
+    (function() {
+     'use strict';
+      Polymer({
+        is:'gid-api',
+        properties:{
+        	apiUrl:  {
+       			type:String,
+       			notify:true
+        	},
+        	apiParams: {
+       			type:String,
+       			notify:true
+        	},
+        	apiContentType: {
+       			type: String,
+       			notify: true,
+       			value: 'application/json'
+       		},
+        	attrName :{
+       			type:String,
+       			notify:true
+        	},
+        	apiHeader:  {
+       			type:Object,
+       			notify:true,
+       			value: {}
+        	},
+        	apiTimeout:{
+        		type: Number,
+    	        notify: true,
+    	        value: 0
+        	},
+   	     	response: {
+	   	        type: Object,
+	   	        notify: true
+           },
+           auto:{
+	       		 type:Boolean,
+	       	     notify: true,
+	       	     value:true
+       		},
+       		method:{
+       			type:String,
+       			notify:true,
+       			value:"GET"
+       		},
+       		error:{
+       			type:String,
+       			notify:true,
+       			observer: 'errorReceived'
+       		},
+       		requestBody: {
+       			type: Object,
+	   	        notify: true
+       		},
+       		entity: {
+       			type:String,
+       			notify:true,
+       			observer: 'entityReceived'
+       		},
+       		pathKey: {
+       			type:String,
+       			notify:true,
+       			value: ''
+       		},
+       		path: {
+       			type:String,
+       			notify:true,
+       			value: ''
+       		},
+       		apiToken: {
+       			type:String,
+       			notify:true,
+       			value: '',
+       			observer: 'apiTokenReceived'
+       		}
+       		
+       		
+        },
+        _processParams: function(apiParams){
+        	return JSON.parse(apiParams);
+        },
+        entityReceived: function(){
+        	var that = this;
+        	var apiList = {};
+        	if(localStorage.hasOwnProperty('api-path')){
+        		apiList = JSON.parse(localStorage.getItem('api-path'));
+        	}
+        	else{
+        		apiList =  apiPath;
+        	}
+        	if(that.entity){
+        				var temp = that.entity.toLowerCase() + '.' + that.pathKey;
+	                    that.path = _.get(apiList, temp);
+        	}
+        	 
+        },
+        apiTokenReceived: function(){
+        	if(this.apiToken){
+        		this.apiHeader["Authorization"] = 'Bearer ' + this.apiToken;
+        	}
+        },
+        errorReceived: function(newvalue, oldvalue){
+        	if(newvalue !== null && newvalue.response !== null){
+        		if(newvalue.response.errorCode === "40101"){
+        			localStorage.clear();
+        		}
+        	}
+        }
+      });
+    })();
+  </script>
+</dom-module>

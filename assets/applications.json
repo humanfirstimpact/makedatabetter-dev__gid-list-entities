@@ -1,0 +1,27 @@
+{
+  "applications": [
+    {
+      "id": "107733172",
+      "name": "Sample CRM App",
+      "clonedBytes": 917504,
+      "archivedBytes": 0,
+      "unusedBytes": 94910104,
+      "denormalizedBytes": 0,
+      "dormantBytes": 0
+    },
+    {
+      "id": "107733174",
+      "name": "Sample Sale App",
+      "clonedBytes": 3887104,
+      "archivedBytes": 6377472,
+      "unusedBytes": 492688063,
+      "denormalizedBytes": 0,
+      "dormantBytes": 0
+    }
+  ],
+  "_meta": {
+    "total": 2,
+    "limit": 10,
+    "offset": 0
+  }
+}

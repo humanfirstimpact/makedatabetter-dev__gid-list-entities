@@ -1,0 +1,760 @@
+{
+  "synonyms": [
+    {
+      "id": "700165",
+      "label": "order_number",
+      "verified": "N",
+      "relevance": 7.000000000000001
+    },
+    {
+      "id": "700173",
+      "label": "subscriber_birth_date",
+      "verified": "N",
+      "relevance": 7.000000000000001
+    },
+    {
+      "id": "700167",
+      "label": "amount_sold",
+      "verified": "N",
+      "relevance": 50
+    },
+    {
+      "id": "700162",
+      "label": "order-date",
+      "verified": "N",
+      "relevance": 7.000000000000001
+    },
+    {
+      "id": "700168",
+      "label": "ship-address",
+      "verified": "N",
+      "relevance": 8
+    },
+    {
+      "id": "700181",
+      "label": "email_address",
+      "verified": "N",
+      "relevance": 7.000000000000001
+    },
+    {
+      "id": "700179",
+      "label": "ship-city",
+      "verified": "N",
+      "relevance": 100
+    },
+    {
+      "id": "700170",
+      "label": "address_line_1",
+      "verified": "N",
+      "relevance": 20
+    },
+    {
+      "id": "700183",
+      "label": "order_id",
+      "verified": "N",
+      "relevance": 7.000000000000001
+    },
+    {
+      "id": "700164",
+      "label": "city",
+      "verified": "N",
+      "relevance": 50
+    },
+    {
+      "id": "700169",
+      "label": "ship_dt",
+      "verified": "N",
+      "relevance": 8
+    },
+    {
+      "id": "700177",
+      "label": "order_dt",
+      "verified": "N",
+      "relevance": 7.000000000000001
+    },
+    {
+      "id": "700171",
+      "label": "ship_address",
+      "verified": "N",
+      "relevance": 8
+    },
+    {
+      "id": "700172",
+      "label": "transaction_date",
+      "verified": "N",
+      "relevance": 7.000000000000001
+    },
+    {
+      "id": "700182",
+      "label": "ship-state",
+      "verified": "N",
+      "relevance": 8
+    },
+    {
+      "id": "700166",
+      "label": "transaction_amount",
+      "verified": "N",
+      "relevance": 50
+    },
+    {
+      "id": "700175",
+      "label": "bill_address",
+      "verified": "N",
+      "relevance": 7.000000000000001
+    },
+    {
+      "id": "700160",
+      "label": "order_no",
+      "verified": "N",
+      "relevance": 20
+    },
+    {
+      "id": "700161",
+      "label": "date",
+      "verified": "N",
+      "relevance": 13
+    },
+    {
+      "id": "700174",
+      "label": "ip_address",
+      "verified": "N",
+      "relevance": 20
+    },
+    {
+      "id": "700176",
+      "label": "street_addr",
+      "verified": "N",
+      "relevance": 100
+    },
+    {
+      "id": "700163",
+      "label": "shipping_date",
+      "verified": "N",
+      "relevance": 7.000000000000001
+    },
+    {
+      "id": "700178",
+      "label": "ship-date",
+      "verified": "N",
+      "relevance": 8
+    },
+    {
+      "id": "700184",
+      "label": "ship_date",
+      "verified": "N",
+      "relevance": 8
+    },
+    {
+      "id": "700180",
+      "label": "order_date",
+      "verified": "N",
+      "relevance": 13
+    }
+  ],
+  "patterns": [
+    {
+      "id": "600411",
+      "label": "Zzzz Zzz",
+      "verified": "N",
+      "count": 1
+    },
+    {
+      "id": "600436",
+      "label": "Zzzzz Zzzzzzzz",
+      "verified": "N",
+      "count": 3
+    },
+    {
+      "id": "600422",
+      "label": "Zzzzz Zzzzzzz",
+      "verified": "N",
+      "count": 1
+    },
+    {
+      "id": "600416",
+      "label": "Zzz Zzzzz",
+      "verified": "N",
+      "count": 1
+    },
+    {
+      "id": "600412",
+      "label": "Zzz Zzzz Zzzz",
+      "verified": "N",
+      "count": 1
+    },
+    {
+      "id": "600418",
+      "label": "Zzzzzzz Zzzz",
+      "verified": "N",
+      "count": 1
+    },
+    {
+      "id": "600434",
+      "label": "Zzzzz",
+      "verified": "N",
+      "count": 7
+    },
+    {
+      "id": "600433",
+      "label": "Zzzzzz8217",
+      "verified": "N",
+      "count": 1
+    },
+    {
+      "id": "600426",
+      "label": "Zzzzzzz Zzzzzzz",
+      "verified": "N",
+      "count": 3
+    },
+    {
+      "id": "600431",
+      "label": "Zzzzz Zzzz",
+      "verified": "N",
+      "count": 4
+    },
+    {
+      "id": "600429",
+      "label": "Zzz Zzzzzzz",
+      "verified": "N",
+      "count": 3
+    },
+    {
+      "id": "600424",
+      "label": "Zzzzzz",
+      "verified": "N",
+      "count": 22
+    },
+    {
+      "id": "600432",
+      "label": "Zzzzzzzzzz",
+      "verified": "N",
+      "count": 12
+    },
+    {
+      "id": "600428",
+      "label": "Zz Zzzz",
+      "verified": "N",
+      "count": 2
+    },
+    {
+      "id": "600415",
+      "label": "Zzzz",
+      "verified": "N",
+      "count": 2
+    },
+    {
+      "id": "600423",
+      "label": "Zzzzzzzz",
+      "verified": "N",
+      "count": 25
+    },
+    {
+      "id": "600420",
+      "label": "Zzzzzzzz Zzzz",
+      "verified": "N",
+      "count": 1
+    },
+    {
+      "id": "600435",
+      "label": "Zzzzzz Zzzzzzz",
+      "verified": "N",
+      "count": 1
+    },
+    {
+      "id": "600430",
+      "label": "Zzzzzzzzzzz",
+      "verified": "N",
+      "count": 4
+    },
+    {
+      "id": "600425",
+      "label": "Zzzz353zzzzz",
+      "verified": "N",
+      "count": 1
+    },
+    {
+      "id": "600414",
+      "label": "Zzzzzzz",
+      "verified": "N",
+      "count": 21
+    },
+    {
+      "id": "600421",
+      "label": "Zzz Zzzz",
+      "verified": "N",
+      "count": 1
+    },
+    {
+      "id": "600419",
+      "label": "Zzzzzzzzzzzz",
+      "verified": "N",
+      "count": 1
+    },
+    {
+      "id": "600427",
+      "label": "Zzzzzzzzz",
+      "verified": "N",
+      "count": 21
+    },
+    {
+      "id": "600417",
+      "label": "Zzz Zzzzzzzzz",
+      "verified": "N",
+      "count": 6
+    },
+    {
+      "id": "600413",
+      "label": "Zzzzz Zzzzz",
+      "verified": "N",
+      "count": 6
+    }
+  ],
+  "relatedConcepts": [
+    {
+      "id": "100501",
+      "label": "person-id",
+      "verified": "N",
+      "relevance": 19
+    },
+    {
+      "id": "100502",
+      "label": "person-name",
+      "verified": "N",
+      "relevance": 17
+    },
+    {
+      "id": "100437",
+      "label": "State",
+      "verified": "N",
+      "relevance": 16
+    },
+    {
+      "id": "100352",
+      "label": "Address",
+      "verified": "N",
+      "relevance": 17
+    },
+    {
+      "id": "100386",
+      "label": "First-Name",
+      "verified": "N",
+      "relevance": 4
+    },
+    {
+      "id": "100413",
+      "label": "Phone-Number",
+      "verified": "N",
+      "relevance": 15
+    },
+    {
+      "id": "100387",
+      "label": "Gender",
+      "verified": "N",
+      "relevance": 4
+    },
+    {
+      "id": "100392",
+      "label": "Last-Name",
+      "verified": "N",
+      "relevance": 4
+    },
+    {
+      "id": "100376",
+      "label": "Email-Address",
+      "verified": "N",
+      "relevance": 4
+    }
+  ],
+  "exampleValues": [
+    {
+      "id": "94ce15e9",
+      "label": "Reno",
+      "verified": "N"
+    },
+    {
+      "id": "25b72845",
+      "label": "Bloomington",
+      "verified": "N"
+    },
+    {
+      "id": "ec698712",
+      "label": "Dulles",
+      "verified": "N"
+    },
+    {
+      "id": "8697f520",
+      "label": "Tutayev",
+      "verified": "N"
+    },
+    {
+      "id": "fc4ed963",
+      "label": "Hongshan",
+      "verified": "N"
+    },
+    {
+      "id": "f430fcff",
+      "label": "Monticello",
+      "verified": "N"
+    },
+    {
+      "id": "0660617c",
+      "label": "Honolulu",
+      "verified": "N"
+    },
+    {
+      "id": "e1d5c7f2",
+      "label": "Juneau",
+      "verified": "N"
+    },
+    {
+      "id": "7641b3f8",
+      "label": "Ciampea",
+      "verified": "N"
+    },
+    {
+      "id": "bb22dec5",
+      "label": "Phoenix",
+      "verified": "N"
+    },
+    {
+      "id": "961f91f7",
+      "label": "Narowlya",
+      "verified": "N"
+    },
+    {
+      "id": "1e2e2d9d",
+      "label": "San Francisco",
+      "verified": "N"
+    },
+    {
+      "id": "5d0628a7",
+      "label": "Calasgasan",
+      "verified": "N"
+    },
+    {
+      "id": "ef61d09b",
+      "label": "Young America",
+      "verified": "N"
+    },
+    {
+      "id": "cf83824e",
+      "label": "Durham",
+      "verified": "N"
+    },
+    {
+      "id": "c143888f",
+      "label": "Columbus",
+      "verified": "N"
+    },
+    {
+      "id": "9f5074e2",
+      "label": "Chicago",
+      "verified": "N"
+    },
+    {
+      "id": "1ca91783",
+      "label": "Memphis",
+      "verified": "N"
+    },
+    {
+      "id": "f631ca7b",
+      "label": "Palm Bay",
+      "verified": "N"
+    },
+    {
+      "id": "b3bba5a3",
+      "label": "Houston",
+      "verified": "N"
+    },
+    {
+      "id": "7d032949",
+      "label": "New Orleans",
+      "verified": "N"
+    },
+    {
+      "id": "eaa5e59a",
+      "label": "Elizabeth",
+      "verified": "N"
+    },
+    {
+      "id": "b8ff4195",
+      "label": "Caringin",
+      "verified": "N"
+    },
+    {
+      "id": "d2824961",
+      "label": "Shawnee Mission",
+      "verified": "N"
+    },
+    {
+      "id": "e03b2965",
+      "label": "Sioux City",
+      "verified": "N"
+    },
+    {
+      "id": "2237ac28",
+      "label": "Paterson",
+      "verified": "N"
+    },
+    {
+      "id": "dae2241a",
+      "label": "Pittsburgh",
+      "verified": "N"
+    },
+    {
+      "id": "efb3d578",
+      "label": "Bojawa",
+      "verified": "N"
+    },
+    {
+      "id": "f602b7aa",
+      "label": "Birmingham",
+      "verified": "N"
+    },
+    {
+      "id": "20169923",
+      "label": "El Paso",
+      "verified": "N"
+    },
+    {
+      "id": "ca4f465a",
+      "label": "Monroe",
+      "verified": "N"
+    },
+    {
+      "id": "6ce02181",
+      "label": "Aurora",
+      "verified": "N"
+    },
+    {
+      "id": "b3b07bff",
+      "label": "Seattle",
+      "verified": "N"
+    },
+    {
+      "id": "512fd380",
+      "label": "Oklahoma City",
+      "verified": "N"
+    },
+    {
+      "id": "9cc9e541",
+      "label": "Naples",
+      "verified": "N"
+    },
+    {
+      "id": "526cbf4d",
+      "label": "Pasirgaru",
+      "verified": "N"
+    },
+    {
+      "id": "3aa14649",
+      "label": "Charleston",
+      "verified": "N"
+    },
+    {
+      "id": "969bddcc",
+      "label": "Anchorage",
+      "verified": "N"
+    },
+    {
+      "id": "59def42f",
+      "label": "Nashville",
+      "verified": "N"
+    },
+    {
+      "id": "b333a1db",
+      "label": "Newport News",
+      "verified": "N"
+    },
+    {
+      "id": "07da26a4",
+      "label": "Irvine",
+      "verified": "N"
+    },
+    {
+      "id": "fdecc43e",
+      "label": "Billings",
+      "verified": "N"
+    },
+    {
+      "id": "a34a9093",
+      "label": "Brooklyn",
+      "verified": "N"
+    },
+    {
+      "id": "4e37d0a0",
+      "label": "Cheyenne",
+      "verified": "N"
+    },
+    {
+      "id": "657bdb01",
+      "label": "Anaheim",
+      "verified": "N"
+    },
+    {
+      "id": "60d6fc1d",
+      "label": "Saint Louis",
+      "verified": "N"
+    },
+    {
+      "id": "405fb368",
+      "label": "Sterling",
+      "verified": "N"
+    },
+    {
+      "id": "68571409",
+      "label": "Jamaica",
+      "verified": "N"
+    },
+    {
+      "id": "bc70297a",
+      "label": "Washington",
+      "verified": "N"
+    },
+    {
+      "id": "efbb0849",
+      "label": "Savannah",
+      "verified": "N"
+    }
+  ],
+  "exampleColumns": [
+    {
+      "id": "200025",
+      "label": "order_date",
+      "verified": "N",
+      "relevance": 75
+    },
+    {
+      "id": "a929c039-0d2b-380c-a570-18a31119d19c",
+      "label": "city",
+      "verified": "N",
+      "relevance": 1
+    },
+    {
+      "id": "200018",
+      "label": "city",
+      "verified": "N",
+      "relevance": 1
+    },
+    {
+      "id": "200007",
+      "label": "ship-date",
+      "verified": "N",
+      "relevance": 75
+    },
+    {
+      "id": "200073",
+      "label": "FIND_JABUTICABA_STAR",
+      "verified": "N",
+      "relevance": 75
+    },
+    {
+      "id": "200037",
+      "label": "SHIP_DATE",
+      "verified": "N",
+      "relevance": 75
+    },
+    {
+      "id": "200026",
+      "label": "amount",
+      "verified": "N",
+      "relevance": 64
+    },
+    {
+      "id": "200038",
+      "label": "SHIP_ADDR",
+      "verified": "N",
+      "relevance": 64
+    },
+    {
+      "id": "37ce5c61-63f4-3154-b3b6-1f67bebeb5ad",
+      "label": "ship-city",
+      "verified": "N",
+      "relevance": 1
+    },
+    {
+      "id": "200008",
+      "label": "ship-address",
+      "verified": "N",
+      "relevance": 64
+    },
+    {
+      "id": "99415359-12ce-3a32-9216-2d00801414c4",
+      "label": "city",
+      "verified": "N",
+      "relevance": 1
+    },
+    {
+      "id": "200009",
+      "label": "ship-city",
+      "verified": "N",
+      "relevance": 1
+    },
+    {
+      "id": "200047",
+      "label": "CLDS_CITY",
+      "verified": "N",
+      "relevance": 75
+    },
+    {
+      "id": "200017",
+      "label": "street",
+      "verified": "N",
+      "relevance": 75
+    },
+    {
+      "id": "33ecc070-e572-3873-b6af-50308543e18c",
+      "label": "city",
+      "verified": "N",
+      "relevance": 1
+    },
+    {
+      "id": "200067",
+      "label": "CLDS_CITY",
+      "verified": "N",
+      "relevance": 75
+    },
+    {
+      "id": "200048",
+      "label": "SVCE_LOCATION_CITY",
+      "verified": "N",
+      "relevance": 64
+    },
+    {
+      "id": "200018",
+      "label": "city",
+      "verified": "N",
+      "relevance": 64
+    },
+    {
+      "id": "8e48e680-606d-35df-998a-c12fd26740a7",
+      "label": "city",
+      "verified": "N",
+      "relevance": 1
+    },
+    {
+      "id": "e18058e2-6837-3000-a847-a9c3db2d0c56",
+      "label": "city",
+      "verified": "N",
+      "relevance": 1
+    },
+    {
+      "id": "200074",
+      "label": "CANCEL_PASSIONFRUIT_TAMARIND",
+      "verified": "N",
+      "relevance": 64
+    },
+    {
+      "id": "4926b280-4cf8-3907-90c1-6b9aee9faf60",
+      "label": "city",
+      "verified": "N",
+      "relevance": 1
+    },
+    {
+      "id": "200058",
+      "label": "X9868_BLUEBERRY",
+      "verified": "N",
+      "relevance": 64
+    }
+  ]
+}

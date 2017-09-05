@@ -1,0 +1,41 @@
+{
+  "synonyms": [
+    {
+      "id": "700165",
+      "label": "order_number",
+      "verified": "N",
+      "relevance": 7.01
+    }
+  ],
+  "patterns": [
+    {
+      "id": "600411",
+      "label": "Zzzz Zzz",
+      "verified": "N",
+      "relevance": 1
+    }
+  ],
+  "exampleValues": [
+    {
+      "id": "94ce15e9",
+      "label": "Reno",
+      "verified": "N"
+    }
+  ],
+  "relatedConcepts": [
+    {
+      "id": "100501",
+      "label": "person-id",
+      "verified": "N",
+      "relevance": 19
+    }
+  ],
+  "exampleColumns": [
+    {
+      "id": "200025",
+      "label": "order_date",
+      "verified": "N",
+      "relevance": 75
+    }
+  ]
+}
