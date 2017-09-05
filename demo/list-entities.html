@@ -2,10 +2,10 @@
 
 <dom-module id="list-entities">
     <template>
-    	<h1>Applications</h1>
+    	<h1>Columns</h1>
         <gid-list-entities api-url='https://srv-34-197-77-167.globalids.com:8443/api/v1'
-        all = true entity='applications'
-        limit='100' offset='0' api-token = 'MTAxNjUwMzAxMTUwMzU1NjY3ODU3MDA5MDFY'
+        concept = '-1863623720071840429' entity='COLUMNS' table='7388252650810326995'
+        limit='100' offset='0' api-token = 'MTAxNjUwMzAxMTUwNDYwMjEzMjIwOTA5MDFY'
         entities={{entities}}></gid-list-entities>
         <template is="dom-if" if="[[entitiesReceived]]">
 	        <template is="dom-repeat" items="[[entities]]">
@@ -39,14 +39,14 @@
      	        }
         },
          responseReceived: function () {
-        	 if(this.entities){	
-				if(this.entities.errorCode){
-					this.entitiesReceived = false;
-				}
-				else{
-					this.entitiesReceived =  true;
-				}
-        	 }
+        	 if(this.entities.length > 0){
+ 				if(this.entities[0]['errorCode']){
+ 					this.entitiesReceived = false;
+ 				}
+ 				else{
+ 					this.entitiesReceived =  true;
+ 				}
+         	 }
          }
       });
     })();

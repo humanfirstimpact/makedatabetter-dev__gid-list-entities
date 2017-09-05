@@ -52,14 +52,14 @@ The property 'entities' returns the response against the rest call.
 -->
 <dom-module id="gid-list-entities">
     <template>
-        <!-- fetch entity path  -->
-        <gid-api path-key = '{{pathKey}}' entity = '{{apiEntity}}' path='{{path}}'></gid-api>
+        <!-- fetch entity _path  -->
+        <gid-api path-key = '{{_pathKey}}' entity = '{{_apiEntity}}' path='{{_path}}'></gid-api>
         <!--  fetch entity path -->
 
         <!-- fetch entities -->
         <gid-api auto=false
-                 method="GET" api-url={{entityUrl}}  response='{{entityResponse}}' error = '{{entityError}}'
-                 api-params={{entityParams}} api-token = {{entityToken}} api-timeout={{entityTimeout}}></gid-api>
+                 method="GET" api-url={{_entityUrl}}  response={{entityResponse}} error = {{entityError}}
+                 api-params={{_entityParams}} api-token = {{_entityToken}} api-timeout={{_entityTimeout}}></gid-api>
         <!-- fetch entities -->
 
     </template>
@@ -69,126 +69,156 @@ The property 'entities' returns the response against the rest call.
             Polymer({
                 is: 'gid-list-entities',
                 properties: {
+                	/*Authorization token for accessing rest api*/
                 	apiToken: {
                     	type: String,
                         notify: true,
                         value : ''
                     },
+                    /*Base url*/
                 	apiUrl: {
                         type: String,
                         notify: true,
                         value: ''
                     },
-                    entityUrl: {
+                    /*Entity url sent to gid-api*/
+                    _entityUrl: {
                         type: String,
                         notify: true
                     },
-                    entityTimeout: {
+                    /*Entity timeout sent to gid-api*/
+                    _entityTimeout: {
                         type: Number,
                         notify: true,
                         value: 0
                     },
+                    /*Entity response sent to gid-api. This is a private property*/
                     entityResponse: {
                         type: Object,
                         notify: true,
-                        observer: 'entityResponseChanged'
+                        observer: '_entityResponseChanged'
                     },
+                    /*Entity error sent to gid-api. This is a private property*/
                     entityError: {
     		 	   		type: String,
     	 	   	    	notify: true,
-    	 	   	    	observer : 'entityErrorReceived'
+    	 	   	    	reflectToAttribute: true,
+    	 	   	    	observer : '_entityErrorReceived'
     	 	   		},
-                    entityParams: {
+    	 	   		/*Entity params sent to gid-api*/
+                    _entityParams: {
                         type: String,
                         notify: true
                     },
-                    entityToken: {
+                    /*Entity token sent to gid-api*/
+                    _entityToken: {
                     	type: String,
                         notify: true
                     },
+                    /*Object for storing success/error response*/
                     entities: {
                         type: Array,
                         value: [],
                         notify: true
                     },
-                    paramsArr: {
+                    /*Array listing the parameters*/
+                    _paramsArr: {
      	           	   type: Array,
      	           	   notify: true,
      	           	   value: ["offset", "limit"]
                      },
+                    /*Lob Id*/
                     lob: {
                     	type: String,
                         notify: true,
                         value: ''
                     },
+                    /*Concept Id*/
                     concept: {
                         type: String,
                         notify: true,
                         value: ''
                     },
+                    /*Application Id*/
                     application: {
                     	type: String,
                         notify: true,
                         value: ''
                     },
+                    /*Database Id*/
                     database: {
                     	type: String,
                         notify: true,
                         value: ''
                     },
+                    /*Schema Id*/
                     schema: {
                     	type: String,
                         notify: true,
                         value: ''
                     },
+                    /*Table Id*/
                     table: {
                     	type: String,
                         notify: true,
                         value: ''
                     },
+                    /*Limit parameter to paginate records*/
                     limit: {
                     	   type: String,
                         notify: true,
                         value: ''
                     },
+                    /*Offset parameter to paginate records*/
                     offset: {
                     	type: String,
                     	notify: true,
                     	value: ''
                     },
+                    /*This property needs to be set to 'true' in order to fetch all the values of the mentioned entity*/ 
                     all: {
                     	type: Boolean,
                     	notify: true,
                     	value: false
                     },
+                    /*Entity to be fetched*/
                     entity: {
                         type: String,
                         notify: true,
                         value: '',
-                        observer: 'entityObserver'
+                        observer: '_entityObserver'
                     },
-                    pathKey: {
+                    /*The api path key*/
+                    _pathKey: {
                			type:String,
                			notify:true,
                			value: ''
                		},
-                    path: {
+               		/*The api path*/
+                    _path: {
                     	type: String,
                         notify: true,
                         value: '',
-                        observer: 'pathReceived'
+                        observer: '_pathReceived'
                     },
-                    apiEntity: {
+                    /*Api entity sent to gid-api*/
+                    _apiEntity: {
                     	type: String,
                         notify: true
+                    },
+                    /*Sub entity*/
+                    _subEntity: {
+                    	type: String,
+                    	notify: true,
+                    	value: ''
                     }
                     
                 },
                 
                 /* Success response handler */
-                entityResponseChanged: function (newvalue, oldvalue) {
+                _entityResponseChanged: function (newvalue, oldvalue) {
                     this.entities = [];
-                    this.reset();
+                    this._reset();
                     if (newvalue != null) {
                         this.async(function () {
                             this.entities = newvalue[this.entity.toLowerCase()];
@@ -198,9 +228,9 @@ The property 'entities' returns the response against the rest call.
                 },
                 
                 /* Error response handler */
-                entityErrorReceived :  function(newvalue, oldvalue){
+                _entityErrorReceived :  function(newvalue, oldvalue){
 	               	 this.entities = [];
-	          		 this.reset();
+	          		 this._reset();
 	       	        	if(newvalue !== null){
 	       	        		this.async(function() {
 	       		         		this.entities =  newvalue.response;
@@ -208,37 +238,35 @@ The property 'entities' returns the response against the rest call.
 	       	        	}
        	     	},
        	     	
-       	     	/* Method to reset 'apiEntity' 'all and 'path' properties */
-       	     	reset: function(){
-	       	     	this.apiEntity = '';
-	                this.path = '';
+       	     	/* Method to _reset '_apiEntity' 'all and '_path' properties */
+       	     	_reset: function(){
+	       	     	this._apiEntity = '';
+	       	     	this._subEntity = '';
+	                this._path = '';
 	                this.all = false;
        	     	},
        	     	
        	     	/* Entity observer */
-                entityObserver: function (newvalue, oldvalue) {
+                _entityObserver: function (newvalue, oldvalue) {
                 	if (this.entity) {
                 	 	if (!this.apiUrl) {
-        	      			this.entityUrl = this.importPath + 'assets/json/' + this.entity.toLowerCase() + '.json';
-        	                this.entityTimeout =  this.entityTimeout - 1;
+        	      			this._entityUrl = this.importPath + 'assets/json/' + this.entity.toLowerCase() + '.json';
+        	                this._entityTimeout =  this._entityTimeout - 1;
               			}
                 		else {
-                			if(this.all){
-                				this.pathKey =  'all';
-                			}
-                			else if(this.entity.toLowerCase() === 'columns'){
+                			if(this.entity.toLowerCase() === 'columns'){
                 				if(this.concept){
                 					if(this.table){
-                						this.pathKey = 'table';
+                						this._subEntity = 'table';
                 					}
                 					else if(this.schema){
-                						this.pathKey = 'schema';
+                						this._subEntity = 'schema';
                 					}
                 					else if(this.database){
-                						this.pathKey = 'database';
+                						this._subEntity = 'database';
                 					}
                 					else if(this.application){
-                						this.pathKey = 'application';
+                						this._subEntity = 'application';
                 					}
                 					else{
                 						console.log("Please provide application parameter");
@@ -249,19 +277,33 @@ The property 'entities' returns the response against the rest call.
                 					console.log("Please provide concept parameter");
                 				}
                 			}
-                			else{
-                				this.pathKey = 'default'
+                			if(this.all){
+                				this._pathKey =  'all';
                 			}
-                 			this.apiEntity = this.entity;
+                			else{
+                				this._pathKey = 'default'
+                			}
+                			this._setApiEntity();
+                 			
                  		}
                  	}
 					
                 },
+                _setApiEntity: function(){
+                		if(this._subEntity){
+                			var temp = '';
+                			temp = this.entity + '.' + this._subEntity;
+                			this._apiEntity = temp;
+                		}
+                		else{
+                			this._apiEntity = this.entity;
+                		}
+                },
                 
                 /* Observer for api path */
-                pathReceived: function(){
-                	if(this.path){
-                		var res = this.path.split(/{([^}]+)}/);
+                _pathReceived: function(){
+                	if(this._path){
+                		var res = this._path.split(/{([^}]+)}/);
                 		for (var i in res) {
                 			if(!res[i].startsWith("/")){
                 					if(this[res[i]]){
@@ -269,19 +311,19 @@ The property 'entities' returns the response against the rest call.
                 					}
                 			}
                 		}
-               			this.entityUrl = this.apiUrl + res.join("");
+               			this._entityUrl = this.apiUrl + res.join("");
                			var paramsObj = {};
-               			for (var i in this.paramsArr){
-                        	if(this[this.paramsArr[i]]){
-                        		paramsObj[this.paramsArr[i]]= this[this.paramsArr[i]];;
+               			for (var i in this._paramsArr){
+                        	if(this[this._paramsArr[i]]){
+                        		paramsObj[this._paramsArr[i]]= this[this._paramsArr[i]];;
                         		}
                         	
                         }
-               			this.entityParams = JSON.stringify(paramsObj);
+               			this._entityParams = JSON.stringify(paramsObj);
                			if(this.apiToken){
-               				this.entityToken =  this.apiToken;
+               				this._entityToken =  this.apiToken;
                			}
-               			this.entityTimeout =  this.entityTimeout - 1;
+               			this._entityTimeout =  this._entityTimeout - 1;
                 		
                 	}
                 }
