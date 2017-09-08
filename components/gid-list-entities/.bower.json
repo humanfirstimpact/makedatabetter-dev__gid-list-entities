@@ -18,11 +18,11 @@
     "gid-api": "makedatabetter-dev/gid-api"
   },
   "homepage": "https://github.com/makedatabetter-dev/gid-list-entities",
-  "_release": "aca5f94403",
+  "_release": "d43cb5f904",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "aca5f944035c7bd630e3cba44fc252215fd410ad"
+    "commit": "d43cb5f9045bc8987088805d57a9f50bfa9aed34"
   },
   "_source": "https://github.com/makedatabetter-dev/gid-list-entities.git",
   "_target": "*",
