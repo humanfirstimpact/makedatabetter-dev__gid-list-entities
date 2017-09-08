@@ -17,12 +17,15 @@
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0",
     "gid-api": "makedatabetter-dev/gid-api"
   },
+  "resolutions": {
+    "lodash": "4.17.4"
+  },
   "homepage": "https://github.com/makedatabetter-dev/gid-list-entities",
-  "_release": "d43cb5f904",
+  "_release": "181981137e",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "d43cb5f9045bc8987088805d57a9f50bfa9aed34"
+    "commit": "181981137edd8357b0f0fa4eb605860caed130f7"
   },
   "_source": "https://github.com/makedatabetter-dev/gid-list-entities.git",
   "_target": "*",
