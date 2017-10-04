@@ -27,7 +27,9 @@ The property 'entities' returns the response against the rest call.
 	
 - `limit`  & `offset` - use limit and offset parameters to paginate records
 
-- 'all' - this property needs to be set to 'true' in order to fetch all the values of the mentioned entity.
+- `sort` property is used for sorting the data. Values can be 'recency',  'relevance' or 'none'.
+
+- `all` - this property needs to be set to 'true' in order to fetch all the values of the mentioned entity.
 
 ##### Outputs:
 
@@ -125,7 +127,7 @@ The property 'entities' returns the response against the rest call.
                     _paramsArr: {
      	           	   type: Array,
      	           	   notify: true,
-     	           	   value: ["offset", "limit"]
+     	           	   value: ["offset", "limit", "sort"]
                      },
                     /*Lob Id*/
                     lob: {
@@ -165,7 +167,7 @@ The property 'entities' returns the response against the rest call.
                     },
                     /*Limit parameter to paginate records*/
                     limit: {
-                    	   type: String,
+                    	type: String,
                         notify: true,
                         value: ''
                     },
@@ -180,6 +182,12 @@ The property 'entities' returns the response against the rest call.
                     	type: Boolean,
                     	notify: true,
                     	value: false
+                    },
+                    /* Sort property*/
+                    sort: {
+                    	type: String,
+                    	notify: true,
+                    	value: ''
                     },
                     /*Entity to be fetched*/
                     entity: {
