@@ -3,9 +3,10 @@
 <dom-module id="list-entities">
     <template>
     	<h1>Columns</h1>
-        <gid-list-entities api-url='https://srv-34-197-77-167.globalids.com:8443/api/v1'
-                           api-token = 'MTAxNjUwMzAxMTUwNDYwMjEzMjIwOTA5MDFY'
-                           entity="COLUMNS" all="true" table="2367057770493260424"
+        <gid-list-entities api-url='http://srv-34-197-77-167.globalids.com:45450/api/v1'
+        api-token='MTAxMDUwMTY0MTUwNzExMTIxMTI4NjA5MDFY'
+        application="100710171"
+        entity="COLUMNS" all=true sort="recency"
         entities={{entities}}></gid-list-entities>
 
         <template is="dom-if" if="[[entitiesReceived]]">

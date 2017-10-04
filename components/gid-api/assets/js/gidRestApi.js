@@ -32,7 +32,7 @@ var apiPath = {
 			  },
 			  "database": {
 			   "default" :"/domains/{concept}/applications/{application}/databases/{database}/columns",
-			   "all":"/applications/{application}/database/{database}/columns"
+			   "all":"/applications/{application}/databases/{database}/columns"
 			  },
 			  "application": {
 			   "default": "/domains/{concept}/applications/{application}/columns",
@@ -68,5 +68,8 @@ var apiPath = {
 		  },
 		  "auth": {
 			  "default": "/api/security/api-token-v1"
+		  },
+		  "faceted-columns": {
+			  "default": "/columns"
 		  }
 		};

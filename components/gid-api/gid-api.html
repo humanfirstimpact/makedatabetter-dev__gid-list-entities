@@ -167,7 +167,8 @@ element.
         errorReceived: function(newvalue, oldvalue){
         	if(newvalue !== null && newvalue.response !== null){
         		if(newvalue.response.errorCode === "40101"){
-        			localStorage.clear();
+					var event = new CustomEvent("logout", {"detail": "LOGOUT"});
+					document.dispatchEvent(event);
         		}
         	}
         }

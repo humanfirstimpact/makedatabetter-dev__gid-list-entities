@@ -21,11 +21,11 @@
     "lodash": "4.17.4"
   },
   "homepage": "https://github.com/makedatabetter-dev/gid-list-entities",
-  "_release": "181981137e",
+  "_release": "f1b5b0bd31",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "181981137edd8357b0f0fa4eb605860caed130f7"
+    "commit": "f1b5b0bd31814d09e6e2caf06eada89562734a81"
   },
   "_source": "https://github.com/makedatabetter-dev/gid-list-entities.git",
   "_target": "*",
