@@ -1,17 +1,13 @@
 {
-  "applications": [
-    {
-      "id": "107733172",
-      "label": "Sample CRM App"
-    },
-    {
-      "id": "107733174",
-      "label": "Sample Sale App"
-    }
-  ],
-  "_meta": {
-    "total": 2,
-    "limit": 10,
-    "offset": 0
-  }
+  "applications" : [ {
+    "id" : "107733172",
+    "label" : "Banking Operation",
+    "predictedColumns" : 10,
+    "confirmedColumns" : 7
+  }, {
+    "id" : "107733174",
+    "label" : "Customer Management System",
+    "predictedColumns" : 12,
+    "confirmedColumns" : 5
+  } ]
 }

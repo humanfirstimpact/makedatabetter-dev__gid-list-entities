@@ -131,12 +131,30 @@
          <template is="dom-if" if="[[applications.length]]">
             <paper-listbox>
 	             <h2>Applications</h2>
-		         <template is="dom-repeat" items="[[applications]]">
-		                <p>{{item.label}}</p>
-		        </template>
+	              <table style="width:100%">
+					  <tr>
+					    <th>Label</th>
+					    <th>Predicted Columns</th>
+					    <th>Confirmed Columns</th>
+					  </tr>
+					  <template is="dom-repeat" items="[[applications]]">
+					  <tr>
+					    <td valign="top">
+		                	{{item.label}}
+						</td>
+						<td valign="top">
+		                	{{item.predictedColumns}}
+						</td>
+						<td valign="top">
+		                	{{item.confirmedColumns}}
+						</td>
+					  </tr>
+		        	 </template>
+		          </table>
+		         <p></p>
 		        <textarea readonly style="width:80%; height:100px;">
 				<gid-list-entities api-url="<your-api-url>" api-token="<your-api-token>" 
-				lob="<lob-id>" concept="<concept-id>"
+				all=true lob="<lob-id>" concept="<concept-id>" 
 			    entity="APPLICATIONS" entities="<your-response-array"></gid-list-entities>
 				</textarea>
 			</paper-listbox>
@@ -155,9 +173,27 @@
          <template is="dom-if" if="[[databases.length]]">
             <paper-listbox>
 	             <h2>Databases</h2>
-		         <template is="dom-repeat" items="[[databases]]">
-		                <p>{{item.label}}</p>
-		        </template>
+		         <table style="width:100%">
+					  <tr>
+					    <th>Label</th>
+					    <th>Predicted Columns</th>
+					    <th>Confirmed Columns</th>
+					  </tr>
+					  <template is="dom-repeat" items="[[databases]]">
+					  <tr>
+					    <td valign="top">
+		                	{{item.label}}
+						</td>
+						<td valign="top">
+		                	{{item.predictedColumns}}
+						</td>
+						<td valign="top">
+		                	{{item.confirmedColumns}}
+						</td>
+					  </tr>
+		        	 </template>
+		          </table>
+		         <p></p>
 		        <textarea readonly style="width:80%; height:100px;">
 				<gid-list-entities api-url="<your-api-url>" api-token="<your-api-token>" 
 				lob="<lob-id>" concept="<concept-id>" application="<application-id>"
@@ -180,9 +216,27 @@
          <template is="dom-if" if="[[schemas.length]]">
             <paper-listbox>
 	             <h2>Schemas</h2>
-		         <template is="dom-repeat" items="[[schemas]]">
-		                <p>{{item.label}}</p>
-		        </template>
+		         <table style="width:100%">
+					  <tr>
+					    <th>Label</th>
+					    <th>Predicted Columns</th>
+					    <th>Confirmed Columns</th>
+					  </tr>
+					  <template is="dom-repeat" items="[[schemas]]">
+					  <tr>
+					    <td valign="top">
+		                	{{item.label}}
+						</td>
+						<td valign="top">
+		                	{{item.predictedColumns}}
+						</td>
+						<td valign="top">
+		                	{{item.confirmedColumns}}
+						</td>
+					  </tr>
+		        	 </template>
+		          </table>
+		         <p></p>
 		        <textarea readonly style="width:80%; height:100px;">
 				<gid-list-entities api-url="<your-api-url>" api-token="<your-api-token>" 
 				lob="<lob-id>" concept="<concept-id>" application="<application-id>" database="<database-id>"
@@ -206,9 +260,27 @@
          <template is="dom-if" if="[[tables.length]]">
             <paper-listbox>
 	             <h2>Tables</h2>
-		         <template is="dom-repeat" items="[[tables]]">
-		                <p>{{item.label}}</p>
-		        </template>
+		         <table style="width:100%">
+					  <tr>
+					    <th>Label</th>
+					    <th>Predicted Columns</th>
+					    <th>Confirmed Columns</th>
+					  </tr>
+					  <template is="dom-repeat" items="[[tables]]">
+					  <tr>
+					    <td valign="top">
+		                	{{item.label}}
+						</td>
+						<td valign="top">
+		                	{{item.predictedColumns}}
+						</td>
+						<td valign="top">
+		                	{{item.confirmedColumns}}
+						</td>
+					  </tr>
+		        	 </template>
+		          </table>
+		         <p></p>
 		        <textarea readonly style="width:80%; height:100px;">
 				<gid-list-entities api-url="<your-api-url>" api-token="<your-api-token>" 
 				lob="<lob-id>" concept="<concept-id>" application="<application-id>" database="<database-id>" schema="<schema-id>"
