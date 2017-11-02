@@ -3,6 +3,8 @@
 -->
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../gid-api/gid-api.html">
+<script src="../lodash/dist/lodash.min.js"></script>
+<script src="../polymer-global-variables/dist/polymer-global-variables.js" charset="utf-8"></script>
 
 <!--
 
@@ -226,10 +228,56 @@ The property 'entities' returns the response against the rest call.
                 /* Success response handler */
                 _entityResponseChanged: function (newvalue, oldvalue) {
                     this.entities = [];
+                    var temp = [];
+                    var foundMatch = false;
                     this._reset();
                     if (newvalue != null) {
                         this.async(function () {
-                            this.entities = newvalue[this.entity.toLowerCase()];
+                        	if(Polymer.globalsManager.get('_fetchAll')){
+                        			temp = newvalue[this.entity.toLowerCase()];
+                        			var _prevResponse = [];
+                        			_prevResponse = Polymer.globalsManager.get('_prevResponse');
+	                       			for(var index=0; index<temp.length; index++){
+	                       				foundMatch = false;
+               							var matchedIndex = '';
+               							var matchedPredictedColumns = 0;
+               							var matchedConfirmedColumns = 0;
+                   						for(var i=0; i<_prevResponse.length; i++){
+                	       						if(temp[index]["id"] === _prevResponse[i]["id"]){
+                	       							foundMatch = true;
+                	       							matchedPredictedColumns = _prevResponse[i]["predictedColumns"];
+                	       							matchedConfirmedColumns = _prevResponse[i]["confirmedColumns"]; 
+                	       							if(localStorage.getItem('debug')){
+    	            	       							console.log(matchedPredictedColumns);
+    	            	       							console.log(matchedConfirmedColumns);
+                	       							}
+                	       							break;
+                	       						}
+                       					}
+                   						temp[index]["predictedColumns"]  = matchedPredictedColumns;
+                   						if(localStorage.getItem('debug')){
+                   							console.log("Assigning predicted columns");
+                   							console.log(temp);
+                   						}
+                   						temp[index]["confirmedColumns"]  = matchedConfirmedColumns;
+                   						if(localStorage.getItem('debug')){
+                   							console.log("Assigning confirmed columns");
+                   							console.log(temp);
+                   						}
+	                       						
+                       					if(foundMatch){
+                       						if(localStorage.getItem('debug')){
+                       							console.log(temp);
+                       						}
+                       						continue;
+                       					}
+                        		}
+	                       		this.entities = temp;
+                        	}
+                        	else{
+                        		this.entities = newvalue[this.entity.toLowerCase()];
+                                Polymer.globalsManager.set('_prevResponse', this.entities);
+                        	}
                         }, 500);
                     }
 
@@ -281,9 +329,11 @@ The property 'entities' returns the response against the rest call.
                 			}
 
                             if(this.all){
+                            	//TODO	Polymer.globalsManager.set('_fetchAll', true);
                 				this._pathKey =  'all';
                 			}
                 			else{
+                				//TODO Polymer.globalsManager.set('_fetchAll', false);
                 				this._pathKey = 'default'
                 			}
 
