@@ -247,23 +247,11 @@ The property 'entities' returns the response against the rest call.
                 	       							foundMatch = true;
                 	       							matchedPredictedColumns = _prevResponse[i]["predictedColumns"];
                 	       							matchedConfirmedColumns = _prevResponse[i]["confirmedColumns"]; 
-                	       							if(localStorage.getItem('debug')){
-    	            	       							console.log(matchedPredictedColumns);
-    	            	       							console.log(matchedConfirmedColumns);
-                	       							}
                 	       							break;
                 	       						}
                        					}
                    						temp[index]["predictedColumns"]  = matchedPredictedColumns;
-                   						if(localStorage.getItem('debug')){
-                   							console.log("Assigning predicted columns");
-                   							console.log(temp);
-                   						}
                    						temp[index]["confirmedColumns"]  = matchedConfirmedColumns;
-                   						if(localStorage.getItem('debug')){
-                   							console.log("Assigning confirmed columns");
-                   							console.log(temp);
-                   						}
 	                       						
                        					if(foundMatch){
                        						if(localStorage.getItem('debug')){
@@ -303,7 +291,7 @@ The property 'entities' returns the response against the rest call.
        	     	},
 
        	     	/* Entity observer */
-                _entityObserver: function (newvalue, oldvalue) {
+                _entityObserver: function () {
                 	if (this.entity) {
                 	 	if (!this.apiUrl) {
         	      			this._entityUrl = this.importPath + 'assets/json/' + this.entity.toLowerCase() + '.json';
@@ -329,11 +317,11 @@ The property 'entities' returns the response against the rest call.
                 			}
 
                             if(this.all){
-                            	//TODO	Polymer.globalsManager.set('_fetchAll', true);
+                            	Polymer.globalsManager.set('_fetchAll', true);
                 				this._pathKey =  'all';
                 			}
                 			else{
-                				//TODO Polymer.globalsManager.set('_fetchAll', false);
+                				Polymer.globalsManager.set('_fetchAll', false);
                 				this._pathKey = 'default'
                 			}
 
